@@ -30,17 +30,32 @@ export default function TabLayout() {
         },
         tabBarStyle: {
           backgroundColor: Colors[colorScheme ?? "light"].darker,
-          margin: 50,
+          margin: 10,
+          marginBottom: 50,
+          position: "absolute",
+          borderRadius: 20,
+          borderWidth: 1,
+          borderTopWidth: 1,
+          borderColor: Colors[colorScheme ?? "light"].tint,
+          height: 60,
         },
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="library"
         options={{
           title: "Library",
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="th-list" color={color} />
           ),
+          headerTitleStyle: {
+            color: Colors[colorScheme ?? "light"].text,
+          },
+          headerStyle: {
+            borderBottomWidth: 1,
+            borderBottomColor: Colors[colorScheme ?? "light"].tint,
+            backgroundColor: Colors[colorScheme ?? "light"].darker,
+          },
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -58,10 +73,17 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="browse"
         options={{
           title: "Browse",
           tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: "Settings",
+          tabBarIcon: ({ color }) => <TabBarIcon name="gear" color={color} />,
         }}
       />
     </Tabs>
