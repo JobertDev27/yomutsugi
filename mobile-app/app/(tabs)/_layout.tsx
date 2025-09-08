@@ -1,7 +1,6 @@
 import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Link, Tabs } from "expo-router";
-import { Pressable } from "react-native";
+import { Tabs } from "expo-router";
 
 import Colors from "@/constants/Colors";
 import { useColorScheme } from "@/components/useColorScheme";
@@ -31,8 +30,10 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: Colors[colorScheme ?? "light"].darker,
           margin: 10,
-          marginBottom: 50,
           position: "absolute",
+          justifyContent: "space-between",
+          bottom: 40,
+          paddingBottom: 20,
           borderRadius: 20,
           borderWidth: 1,
           borderTopWidth: 1,
@@ -56,20 +57,6 @@ export default function TabLayout() {
             borderBottomColor: Colors[colorScheme ?? "light"].tint,
             backgroundColor: Colors[colorScheme ?? "light"].darker,
           },
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? "light"].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
         }}
       />
       <Tabs.Screen
@@ -77,6 +64,14 @@ export default function TabLayout() {
         options={{
           title: "Browse",
           tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
+          headerTitleStyle: {
+            color: Colors[colorScheme ?? "light"].text,
+          },
+          headerStyle: {
+            borderBottomWidth: 1,
+            borderBottomColor: Colors[colorScheme ?? "light"].tint,
+            backgroundColor: Colors[colorScheme ?? "light"].darker,
+          },
         }}
       />
       <Tabs.Screen
@@ -84,6 +79,14 @@ export default function TabLayout() {
         options={{
           title: "Settings",
           tabBarIcon: ({ color }) => <TabBarIcon name="gear" color={color} />,
+          headerTitleStyle: {
+            color: Colors[colorScheme ?? "light"].text,
+          },
+          headerStyle: {
+            borderBottomWidth: 1,
+            borderBottomColor: Colors[colorScheme ?? "light"].tint,
+            backgroundColor: Colors[colorScheme ?? "light"].darker,
+          },
         }}
       />
     </Tabs>

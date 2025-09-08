@@ -1,26 +1,42 @@
 import { StyleSheet, FlatList } from "react-native";
-
 import { Text, View } from "@/components/Themed";
 import LibraryEntry from "@/components/LibraryEntry";
 
 export default function Library() {
   const example = {
-    name: "one piece",
-    rating: 10,
+    name: "One Piece",
+    rating: 9,
   };
   return (
-    <FlatList
-      style={styles.container}
-      data={[example, example, example]}
-      renderItem={({ item }) => <LibraryEntry entry={item} />}
-      numColumns={2}
-    />
+    <View style={styles.background}>
+      <View>
+        <Text>Sort</Text>
+      </View>
+      <FlatList
+        style={styles.container}
+        data={[
+          example,
+          example,
+          example,
+          example,
+          example,
+          example,
+          example,
+          example,
+        ]}
+        renderItem={({ item }) => <LibraryEntry entry={item} />}
+        numColumns={1}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    padding: 10,
+  },
   container: {
     flex: 1,
-    margin: 10,
   },
 });
