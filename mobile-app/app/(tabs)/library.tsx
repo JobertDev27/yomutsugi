@@ -14,19 +14,11 @@ export default function Library() {
       </View>
       <FlatList
         style={styles.container}
-        data={[
-          example,
-          example,
-          example,
-          example,
-          example,
-          example,
-          example,
-          example,
-        ]}
+        data={[example]}
         renderItem={({ item }) => <LibraryEntry entry={item} />}
         numColumns={1}
       />
+      <Text>{}</Text>
     </View>
   );
 }
