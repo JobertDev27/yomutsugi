@@ -9,12 +9,15 @@
 
 * {
   margin: 0;
+  font-family: "JetBrains Mono";
 }
 
 body {
   background-color: var(--bg);
 }
 
-#header-title {
+#header-title-cont {
   color: var(--highlight);
+  background-color: var(--darken);
+  padding: 20px;
 }

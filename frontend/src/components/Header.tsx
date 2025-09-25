@@ -1,10 +1,10 @@
 export default function Header() {
   return (
     <header>
-      <div>
-        <h1 id="header-title">Yomutsugi</h1>
+      <div id="header-title-cont">
+        <h1>Yomutsugi</h1>
       </div>
-      <div id="header-nav"></div>
+      <div className="header-nav"></div>
     </header>
   );
 }
