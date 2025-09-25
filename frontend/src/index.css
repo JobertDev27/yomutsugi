@@ -1,0 +1,20 @@
+:root {
+  --highlight: #f38ba8;
+  --text: #cdd6f4;
+  --subtext: #a6adc8;
+  --bg: #1e1e2e;
+  --overlay: #313244;
+  --darken: #181825;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  background-color: var(--bg);
+}
+
+#header-title {
+  color: var(--highlight);
+}
