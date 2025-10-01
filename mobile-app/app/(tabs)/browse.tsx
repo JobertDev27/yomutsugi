@@ -17,15 +17,22 @@ export default function Browse() {
     background: {
       flex: 1,
     },
-    searchBar: {
+    labelHeader: {
+      fontSize: 18,
+      marginBottom: 5,
+    },
+    searchMenu: {
       padding: 10,
       justifyContent: "space-between",
-      flexDirection: "row",
+      flexDirection: "column",
+      gap: 20,
     },
     inputField: {
       backgroundColor: Colors[colorScheme ?? "light"].text,
       width: "60%",
-      borderRadius: 10,
+      borderRadius: 5,
+      paddingLeft: 10,
+      height: 35,
     },
     dropdown: {
       width: 120,
@@ -37,28 +44,34 @@ export default function Browse() {
 
   return (
     <View style={styles.background}>
-      <View style={styles.searchBar}>
-        <TextInput style={styles.inputField} placeholder="Search" />
-        <DropDownPicker
-          open={open}
-          value={value}
-          items={items}
-          style={styles.dropdown}
-          setOpen={setOpen}
-          setValue={setValue}
-          setItems={setItems}
-          containerStyle={{
-            width: 120,
-            borderRadius: 10,
-          }}
-          dropDownContainerStyle={{
-            backgroundColor: Colors[colorScheme ?? "light"].text,
-          }}
-          selectedItemContainerStyle={{
-            backgroundColor: Colors[colorScheme ?? "light"].tint,
-          }}
-          placeholder="Media Type"
-        />
+      <View style={styles.searchMenu}>
+        <View>
+          <Text style={styles.labelHeader}>Media Title</Text>
+          <TextInput style={styles.inputField} placeholder="Search" />
+        </View>
+        <View>
+          <Text style={styles.labelHeader}>Media Type</Text>
+          <DropDownPicker
+            open={open}
+            value={value}
+            items={items}
+            style={styles.dropdown}
+            setOpen={setOpen}
+            setValue={setValue}
+            setItems={setItems}
+            containerStyle={{
+              width: 120,
+              borderRadius: 10,
+            }}
+            dropDownContainerStyle={{
+              backgroundColor: Colors[colorScheme ?? "light"].text,
+            }}
+            selectedItemContainerStyle={{
+              backgroundColor: Colors[colorScheme ?? "light"].tint,
+            }}
+            placeholder="Media Type"
+          />
+        </View>
       </View>
     </View>
   );
