@@ -16,8 +16,59 @@ body {
   background-color: var(--bg);
 }
 
+header {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+}
+
+a {
+  color: var(--highlight);
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: scale 0.2s;
+}
+
+a:hover {
+  scale: 1.2;
+  transition: scale 0.2s;
+}
+
 #header-title-cont {
   color: var(--highlight);
   background-color: var(--darken);
-  padding: 20px;
+  padding: 30px;
+  width: 90dvw;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px 2px var(--highlight);
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-nav {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.search-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-btn img {
+  width: 32px;
+}
+
+.important-btn {
+  background-color: var(--highlight);
+  border: solid 2px var(--darken);
+  color: var(--darken);
+  font-size: 18px;
+  font-weight: 900;
+  padding: 10px;
+  border-radius: 15px;
+  cursor: pointer;
 }
