@@ -5,6 +5,7 @@ import DropDownPicker from "react-native-dropdown-picker";
 import { useState } from "react";
 
 export default function Browse() {
+  const [searchQuery, setSearchQuery] = useState(String);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -12,7 +13,9 @@ export default function Browse() {
     { label: "Manga", value: "MANGA" },
     { label: "Novel", value: "NOVEL" },
   ]);
+
   const colorScheme = useColorScheme();
+
   const styles = StyleSheet.create({
     background: {
       flex: 1,
@@ -62,6 +65,7 @@ export default function Browse() {
             containerStyle={{
               width: 120,
               borderRadius: 10,
+              padding: 0,
             }}
             dropDownContainerStyle={{
               backgroundColor: Colors[colorScheme ?? "light"].text,
