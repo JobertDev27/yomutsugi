@@ -1,0 +1,6 @@
+.entry-container {
+  aspect-ratio: 2, 3;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
