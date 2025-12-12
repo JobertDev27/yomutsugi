@@ -1,3 +1,14 @@
+:root {
+  --text: #c6d0f5;
+  --bg: #292c3c;
+  --overlay1: #232634;
+  --overlay2: #1e1e2e;
+  --accent: #ca9ee6;
+  --green: #a6e3a1;
+  --red: #f38ba8;
+}
+
 body {
-  background-color: red;
+  font-family: "JetBrains Mono", monospace;
+  background-color: var(--bg);
 }
