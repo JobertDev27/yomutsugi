@@ -1,3 +1,9 @@
+import Header from "./components/Header";
+
 export default function Library() {
-  return <h1>Hello from library</h1>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }

@@ -1,0 +1,42 @@
+header {
+  width: 100dvw;
+  height: 50px;
+  display: grid;
+  padding: 0 50px;
+  box-sizing: border-box;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+header section {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.header-nav {
+  justify-content: flex-start;
+}
+
+.header-title {
+  justify-content: center;
+}
+
+.header-auth {
+  justify-content: flex-end;
+}
+
+.header-nav nav {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  justify-content: space-between;
+}
+
+.header-auth button {
+  color: var(--bg);
+  background-color: var(--accent);
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 25px;
+}

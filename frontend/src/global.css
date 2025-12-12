@@ -11,4 +11,12 @@
 body {
   font-family: "JetBrains Mono", monospace;
   background-color: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
 }
