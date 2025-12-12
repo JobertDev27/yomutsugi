@@ -17,6 +17,7 @@ export default function Header() {
       <section className="header-auth">
         <button
           className="logout-btn"
+          // Handle user log out. Temp fix, TODO: add proper cookie and auth
           onClick={() => {
             console.log("logged out");
             window.location.href = "/";
