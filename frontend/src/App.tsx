@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function App() {
-  return <h1>Hello world</h1>;
+  return <Link to={"/Library"}>Library</Link>;
 }
