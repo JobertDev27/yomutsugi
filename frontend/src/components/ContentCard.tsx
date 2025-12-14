@@ -1,4 +1,6 @@
 import "./contentCard.css";
+import starImg from "../assets/star.png";
+import rankImg from "../assets/leaderboard.png";
 
 interface CardProp {
   name: String;
@@ -21,7 +23,7 @@ export default function ContentCard(cardProp: CardProp) {
         <div className="popularity-cont">
           <div className="rating">
             <div className="upper-sect">
-              <img src="" alt="" />
+              <img src={starImg} alt="star" />
               <span className="num-data"></span>
             </div>
             <div className="lower-sect">
@@ -30,7 +32,7 @@ export default function ContentCard(cardProp: CardProp) {
           </div>
           <div className="ranking">
             <div className="upper-sect">
-              <img src="" alt="" />
+              <img src={rankImg} alt="rank" />
               <span className="num-data"></span>
             </div>
             <div className="lower-sect">
