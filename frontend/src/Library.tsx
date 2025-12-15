@@ -16,23 +16,23 @@ export default function Library() {
 
   useEffect(() => {
     const fetch_data = async () => {
-      const data = await get_anime_by_id("62653");
+      const res = await get_anime_by_id("62653");
+      console.log(res.data.title);
       setAnimeList({
-        name: data?.title_english,
-        rating: data?.score,
-        ranking: data?.rank,
-        image: data?.images?.webp?.image.url,
+        name: res?.data?.title_english ?? res?.data?.title,
+        rating: res?.data?.score,
+        ranking: res?.data?.rank,
+        image: res?.data?.images?.webp?.image_url,
         genre: [
           // merge the 3 genre that jinka sends and get only the name
-          data.genres ?? [],
-          data.themes ?? [],
-          data.demographic ?? [],
+          ...(res?.data.genres ?? []),
+          ...(res?.data.themes ?? []),
+          ...(res?.data.demographics ?? []),
         ].map((d) => d.name),
       });
     };
     fetch_data();
   }, []);
-
   console.log(animeList);
   return (
     <>
