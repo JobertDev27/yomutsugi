@@ -16,7 +16,7 @@ export default function Library() {
 
   useEffect(() => {
     const fetch_data = async () => {
-      const res = await get_anime_by_id("62653");
+      const res = await get_anime_by_id("60303");
       console.log(res.data.title);
       setAnimeList({
         name: res?.data?.title_english ?? res?.data?.title,
