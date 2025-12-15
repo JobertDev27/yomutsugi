@@ -3,11 +3,11 @@ import starImg from "../assets/star.png";
 import rankImg from "../assets/leaderboard.png";
 
 interface CardProp {
-  name: String;
-  rating: Number;
-  ranking: Number;
-  image: String;
-  genre: String[];
+  name: string;
+  rating: number;
+  ranking: number;
+  image: string;
+  genre: string[];
 }
 
 export default function ContentCard(cardProp: CardProp) {
