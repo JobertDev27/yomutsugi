@@ -22,3 +22,7 @@ a {
   font-weight: bold;
   font-size: 18px;
 }
+
+main {
+  padding: 20px;
+}
