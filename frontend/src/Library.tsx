@@ -17,7 +17,7 @@ export default function Library() {
 
   useEffect(() => {
     const fetch_data = async () => {
-      const res = await get_anime_by_id("60303");
+      const res = await get_anime_by_id("27");
       console.log(res.data.title);
       setAnimeList({
         // added fallback measures to make sure that the content loads even with
