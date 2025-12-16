@@ -13,6 +13,7 @@ interface CardProp {
 
 export default function ContentCard(cardProp: CardProp) {
   const listToString = (arr: String[]) => {
+    // since genre is a list convert it to a string
     return arr.join(", ");
   };
   return (
