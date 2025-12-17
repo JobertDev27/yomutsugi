@@ -35,7 +35,7 @@ export default function Test() {
             setAuthError(error.message);
           } else {
             setAuthSuccess(true);
-            window.history.replaceState({}, document.title, "/");
+            window.history.replaceState({}, document.title, "/library");
           }
           setVerifying(false);
         });
