@@ -1,15 +1,22 @@
 import { useState, useEffect } from "react";
 import { createClient, type Session } from "@supabase/supabase-js";
+import { useNavigate } from "react-router";
+import "./auth.css";
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL as string,
   import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY as string
 );
 
-export default function Test() {
+export default function AuthLogin() {
   const [loading, setLoading] = useState<boolean>(false);
+
   const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
   const [session, setSession] = useState<Session | null>(null);
+
+  const navigate = useNavigate();
 
   // Check URL params on initial render
   const params = new URLSearchParams(window.location.search);
@@ -58,11 +65,9 @@ export default function Test() {
     event.preventDefault();
     setLoading(true);
 
-    const { error } = await supabase.auth.signInWithOtp({
-      email,
-      options: {
-        emailRedirectTo: window.location.origin,
-      },
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
     });
 
     if (error) {
@@ -74,17 +79,12 @@ export default function Test() {
     setLoading(false);
   };
 
-  const handleLogout = async (): Promise<void> => {
-    await supabase.auth.signOut();
-    setSession(null);
-  };
-
   if (verifying) {
     return (
       <div>
         <h1>Authentication</h1>
-        <p>Confirming your magic link...</p>
-        <p>Loading...</p>
+        <p>Confirming your credintials...</p>
+        <p>Please wait a moment...</p>
       </div>
     );
   }
@@ -118,13 +118,7 @@ export default function Test() {
   }
 
   if (session) {
-    return (
-      <div>
-        <h1>Welcome!</h1>
-        <p>You are logged in as: {session.user.email}</p>
-        <button onClick={handleLogout}>Sign Out</button>
-      </div>
-    );
+    return navigate("/login", { replace: true });
   }
 
   return (
@@ -132,12 +126,21 @@ export default function Test() {
       <h1>Supabase + React</h1>
       <p>Sign in via magic link with your email below</p>
       <form onSubmit={handleLogin}>
+        <label htmlFor="email">Email</label>
         <input
           type="email"
           placeholder="Your email"
           value={email}
           required
           onChange={(e) => setEmail(e.target.value)}
+        />
+        <label htmlFor="password">Password</label>
+        <input
+          type="text"
+          value={password}
+          placeholder="Your password"
+          required
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button disabled={loading}>
           {loading ? "Loading" : "Send magic link"}
