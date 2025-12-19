@@ -10,7 +10,8 @@ export default function AuthSignup() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  async function signUpNewUser() {
+  async function signUpNewUser(e: React.FormEvent) {
+    e.preventDefault();
     const { error } = await supabase.auth.signUp({
       email: email,
       password: password,
@@ -21,6 +22,8 @@ export default function AuthSignup() {
 
     if (error) {
       alert(error);
+    } else {
+      alert("We sent you an email! Please confirm");
     }
   }
 

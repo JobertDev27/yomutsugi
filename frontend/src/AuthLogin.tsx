@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
-import { useNavigate } from "react-router";
+import { useNavigate, Link } from "react-router";
 import "./auth.css";
 
 const supabase = createClient(
@@ -51,6 +51,7 @@ export default function AuthLogin() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Submit</button>
+        <Link to={"/signup"}>Don't have an account? register</Link>
       </form>
     </div>
   );
