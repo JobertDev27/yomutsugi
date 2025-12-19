@@ -5,7 +5,8 @@ import "./global.css";
 import ProtectedRoute from "./utils/ProtectedRoute.tsx";
 import App from "./App.tsx";
 import Library from "./Library.tsx";
-import Login from "./AuthLogin.tsx";
+import AuthLogin from "./AuthLogin.tsx";
+import AuthSignup from "./AuthSignup.tsx";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/Login",
-    Component: Login,
+    Component: AuthLogin,
+  },
+  {
+    path: "/Signup",
+    Component: AuthSignup,
   },
 ]);
 

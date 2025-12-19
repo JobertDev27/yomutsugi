@@ -25,7 +25,7 @@ export default function AuthLogin() {
     if (error) {
       alert(error.message);
     } else {
-      alert("Check your email for the login link!");
+      navigate("/library");
     }
   };
 
@@ -50,7 +50,7 @@ export default function AuthLogin() {
           required
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button>SUBMIT</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
