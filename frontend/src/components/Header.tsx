@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router";
 import "./header.css";
-import { createClient } from "@supabase/supabase-js";
+import { createClient, type Session } from "@supabase/supabase-js";
+import { useState, useEffect } from "react";
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL as string,
@@ -9,11 +10,18 @@ const supabase = createClient(
 
 export default function Header() {
   const navigate = useNavigate();
+  const [session, setSession] = useState<Session | null>();
 
   const handleLogout = async (): Promise<void> => {
     await supabase.auth.signOut();
     navigate("/login", { replace: true });
   };
+
+  useEffect(() => {
+    supabase.auth
+      .getSession()
+      .then(({ data: { session } }) => setSession(session));
+  }, []);
 
   return (
     <header>
@@ -28,6 +36,7 @@ export default function Header() {
         <h1>YOMUTSUGI</h1>
       </section>
       <section className="header-auth">
+        <span>{session?.user.email}</span>
         <button className="logout-btn" onClick={handleLogout}>
           LOG OUT
         </button>
