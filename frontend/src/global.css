@@ -26,3 +26,26 @@ a {
 main {
   padding: 20px;
 }
+
+input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--text);
+  color: var(--text);
+  padding: 5px;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 1px solid var(--green);
+}
+
+button {
+  color: var(--bg);
+  background-color: var(--accent);
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+}

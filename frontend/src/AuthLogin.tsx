@@ -30,29 +30,37 @@ export default function AuthLogin() {
   };
 
   return (
-    <div>
-      <h1>Supabase + React</h1>
-      <p>Sign in via magic link with your email below</p>
+    <main>
+      <h1>YOMUTSUGI</h1>
       <form onSubmit={handleLogin}>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          placeholder="Your email"
-          value={email}
-          required
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="text"
-          value={password}
-          placeholder="Your password"
-          required
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="input-cont">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            placeholder="Your email"
+            value={email}
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="input-cont">
+          <label htmlFor="password">Password</label>
+          <input
+            type="text"
+            value={password}
+            placeholder="Your password"
+            required
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <Link className="link" to="/">
+          Forgot Password?
+        </Link>
         <button type="submit">Submit</button>
-        <Link to={"/signup"}>Don't have an account? register</Link>
+        <Link className="link" to={"/signup"}>
+          Don't have an account? register
+        </Link>
       </form>
-    </div>
+    </main>
   );
 }
