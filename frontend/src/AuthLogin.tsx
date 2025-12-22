@@ -30,9 +30,9 @@ export default function AuthLogin() {
   };
 
   return (
-    <main>
-      <h1>YOMUTSUGI</h1>
+    <main className="auth-cont">
       <form onSubmit={handleLogin}>
+        <h1>YOMUTSUGI</h1>
         <div className="input-cont">
           <label htmlFor="email">Email</label>
           <input
