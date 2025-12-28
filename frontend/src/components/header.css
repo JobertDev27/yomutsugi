@@ -24,6 +24,7 @@ header section {
 
 .header-auth {
   justify-content: flex-end;
+  gap: 20px;
 }
 
 .header-nav nav {

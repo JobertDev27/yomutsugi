@@ -36,7 +36,7 @@ export default function Header() {
         <h1>YOMUTSUGI</h1>
       </section>
       <section className="header-auth">
-        <span>{session?.user.email}</span>
+        <span>{session?.user.email?.split("@")[0]}</span>
         <button className="logout-btn" onClick={handleLogout}>
           LOG OUT
         </button>
