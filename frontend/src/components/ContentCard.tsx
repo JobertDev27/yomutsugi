@@ -9,6 +9,7 @@ interface CardProp {
   ranking: number;
   image: string;
   genre: string[];
+  user_item: boolean;
 }
 
 export default function ContentCard(cardProp: CardProp) {
@@ -43,15 +44,19 @@ export default function ContentCard(cardProp: CardProp) {
               <span className="num-lbl">Ranking</span>
             </div>
           </div>
-          <div className="popularity-data-cont">
-            <div className="upper-sect">
-              <img src={userStarImg} alt="star" />
-              <span className="num-data">unrated</span>
+          {cardProp.user_item ? (
+            <div className="popularity-data-cont">
+              <div className="upper-sect">
+                <img src={userStarImg} alt="star" />
+                <span className="num-data">unrated</span>
+              </div>
+              <div className="lower-sect">
+                <span className="num-lbl">Your Score</span>
+              </div>
             </div>
-            <div className="lower-sect">
-              <span className="num-lbl">Your Score</span>
-            </div>
-          </div>
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
     </div>
