@@ -7,6 +7,7 @@ import App from "./App.tsx";
 import Library from "./Library.tsx";
 import AuthLogin from "./AuthLogin.tsx";
 import AuthSignup from "./AuthSignup.tsx";
+import Shows from "./Shows.tsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,16 @@ const router = createBrowserRouter([
       return (
         <ProtectedRoute>
           <Library />
+        </ProtectedRoute>
+      );
+    },
+  },
+  {
+    path: "/shows",
+    Component: () => {
+      return (
+        <ProtectedRoute>
+          <Shows />
         </ProtectedRoute>
       );
     },

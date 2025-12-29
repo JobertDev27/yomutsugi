@@ -27,7 +27,7 @@ export default function Header() {
     <header>
       <section className="header-nav">
         <nav>
-          <Link to={"/show"}>SHOWS</Link>
+          <Link to={"/shows"}>SHOWS</Link>
           <Link to={"/library"}>LIBRARY</Link>
           <Link to={"/recommendation"}>RECOMMENDATION</Link>
         </nav>
