@@ -10,6 +10,6 @@ async function jikan(query: String) {
   }
 }
 
-export const get_anime = () => jikan("anime");
+export const get_anime = () => jikan("top/anime");
 export const get_curr_season = () => jikan("seasons/now");
 export const get_anime_by_id = (id: String) => jikan(`anime/${id}`);
