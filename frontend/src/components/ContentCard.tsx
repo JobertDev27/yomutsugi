@@ -24,7 +24,9 @@ export default function ContentCard(cardProp: CardProp) {
       </div>
       <div className="metadata">
         <span className="title"> {cardProp.name} </span>
-        <span className="genre">{listToString(cardProp.genre)}</span>
+        <span className="genre">
+          {cardProp.genre ? listToString(cardProp.genre) : "none"}
+        </span>
         <div className="popularity-cont">
           <div className="popularity-data-cont">
             <div className="upper-sect">
