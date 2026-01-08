@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { get_anime } from "./utils/api";
+import { get_anime, get_anime_by_query } from "./utils/api";
 import ContentCard from "./components/ContentCard";
 import Header from "./components/Header";
 import "./shows.css";
@@ -11,15 +11,23 @@ interface CardProp {
   image: string;
   genre: string[];
   user_item: boolean;
+  data: any;
 }
 
 export default function Shows() {
   const [shows, setShows] = useState<CardProp[] | null>(null);
+  const [api, setApi] = useState<any | null>(null);
+  const [query, setQuery] = useState<string>("");
 
   useEffect(() => {
     const fetch_shows = async () => {
-      const res = await get_anime();
-      const shows_data: CardProp[] = res.data.map((d: any) => ({
+      let local_api;
+      if (api) {
+        local_api = api;
+      } else {
+        local_api = await get_anime();
+      }
+      const shows_data: CardProp[] = local_api.data.map((d: any) => ({
         name: d?.title_english ?? d?.title,
         rating: d?.score,
         ranking: d?.rank,
@@ -27,26 +35,37 @@ export default function Shows() {
         user_item: true,
         genre: [
           // merge the 3 genre dicts that jinka sends and get only the name
-          // because for soreason they needed different dicts for genre
+          // because for some reason they needed different dicts for genre
           ...(d.genres ?? []),
           ...(d.themes ?? []),
           ...(d.demographics ?? []),
         ].map((f) => f.name),
       }));
+      setShows(null);
       setShows(shows_data);
     };
     fetch_shows();
-  }, []);
-  console.log(shows);
+    console.log(query);
+  }, [api]);
   return (
     <>
       <Header />
 
       <main className="shows-main">
-        <aside></aside>
+        <aside>
+          <label htmlFor="search">Search</label>
+          <input
+            type="text"
+            name="search"
+            onChange={(e) => setQuery(e.target.value)}
+            value={query}
+          />
+          <button onClick={async () => setApi(await get_anime_by_query(query))}>
+            go
+          </button>
+        </aside>
         <section className="shows-section">
           {shows?.map((c) => {
-            console.log(c);
             return (
               <ContentCard
                 name={c.name}
