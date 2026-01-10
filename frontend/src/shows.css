@@ -1,6 +1,7 @@
 .shows-main {
   display: flex;
   flex-direction: row;
+  gap: 50px;
 }
 
 .shows-section {
@@ -9,4 +10,34 @@
   height: 100%;
   flex-wrap: wrap;
   gap: 15px;
+}
+
+aside {
+  width: 450px;
+  box-sizing: border-box;
+  font-weight: 700;
+}
+
+.search-query {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.rating-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.rating-sub-cont {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+}
+
+.query-cont {
+  display: flex;
+  flex-direction: column;
 }

@@ -61,14 +61,42 @@ export default function Shows() {
 
       <main className="shows-main">
         <aside>
-          <form>
-            <label htmlFor="search">Search</label>
-            <input
-              type="text"
-              name="search"
-              onChange={(e) => setQuery(e.target.value)}
-              value={query}
-            />
+          <form className="search-query">
+            <div className="query-cont">
+              <label htmlFor="search">Search</label>
+              <input
+                type="search"
+                name="search"
+                onChange={(e) => setQuery(e.target.value)}
+                value={query}
+              />
+            </div>
+            <div className="rating-cont">
+              <div className="rating-sub-cont">
+                <label htmlFor="rating">Rating</label>
+                <input type="text" name="rating" />
+              </div>
+              <div className="rating-sub-cont">
+                <label htmlFor="rating-min">Min</label>
+                <input type="text" name="rating-min" />
+              </div>
+              <div className="rating-sub-cont">
+                <label htmlFor="rating-max">Max</label>
+                <input type="text" name="rating-max" />
+              </div>
+            </div>
+            <div className="query-cont">
+              <label htmlFor="">Content Classification</label>
+              <input type="text" />
+            </div>
+            <div className="query-cont">
+              <label htmlFor="">Start Date</label>
+              <input type="text" />
+            </div>
+            <div className="query-cont">
+              <label htmlFor="">End Date</label>
+              <input type="text" />
+            </div>
             <button
               type="submit"
               onClick={async (e) => {
