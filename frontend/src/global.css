@@ -49,3 +49,9 @@ button {
   border-radius: 25px;
   cursor: pointer;
 }
+
+.sec-btn {
+  background-color: var(--overlay2);
+  color: var(--text);
+  border: 1px solid var(--accent);
+}
