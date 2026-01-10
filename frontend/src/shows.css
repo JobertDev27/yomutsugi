@@ -10,12 +10,15 @@
   height: 100%;
   flex-wrap: wrap;
   gap: 15px;
+  padding-top: 80px;
 }
 
 aside {
   width: 450px;
   box-sizing: border-box;
   font-weight: 700;
+  position: relative;
+  margin-top: 100px;
 }
 
 .search-query {
@@ -23,6 +26,8 @@ aside {
   flex-direction: column;
   width: 100%;
   gap: 10px;
+  position: sticky;
+  top: 110px;
 }
 
 .rating-cont {

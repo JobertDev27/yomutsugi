@@ -3,6 +3,7 @@ import { get_anime_by_id } from "./utils/api";
 import { useState, useEffect } from "react";
 import ContentCard from "./components/ContentCard";
 import LibraryTab from "./components/LibraryTab";
+import "./library.css";
 
 interface CardProp {
   name: string;

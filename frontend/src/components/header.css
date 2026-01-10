@@ -6,6 +6,7 @@ header {
   box-sizing: border-box;
   grid-template-columns: 1fr 1fr 1fr;
   border: 0;
+  position: fixed;
 }
 
 header section {
