@@ -17,7 +17,15 @@ interface CardProp {
 export default function Shows() {
   const [shows, setShows] = useState<CardProp[] | null>(null);
   const [api, setApi] = useState<any | null>(null);
+
+  // Search queries
   const [query, setQuery] = useState<string>("");
+  const [rating, setRating] = useState<string>("");
+  const [ratingMin, setRatingMin] = useState<string>("");
+  const [ratingMax, setRatingMax] = useState<string>("");
+  const [contentClass, setContentClass] = useState<string>("");
+  const [startDate, setStartDate] = useState<string>("");
+  const [endDate, setEndDate] = useState<string>("");
 
   useEffect(() => {
     const fetch_shows = async () => {
@@ -53,16 +61,24 @@ export default function Shows() {
 
       <main className="shows-main">
         <aside>
-          <label htmlFor="search">Search</label>
-          <input
-            type="text"
-            name="search"
-            onChange={(e) => setQuery(e.target.value)}
-            value={query}
-          />
-          <button onClick={async () => setApi(await get_anime_by_query(query))}>
-            go
-          </button>
+          <form>
+            <label htmlFor="search">Search</label>
+            <input
+              type="text"
+              name="search"
+              onChange={(e) => setQuery(e.target.value)}
+              value={query}
+            />
+            <button
+              type="submit"
+              onClick={async (e) => {
+                e.preventDefault();
+                setApi(await get_anime_by_query(query));
+              }}
+            >
+              SEARCH
+            </button>
+          </form>
         </aside>
         <section className="shows-section">
           {shows?.map((c) => {
