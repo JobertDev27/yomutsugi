@@ -19,10 +19,14 @@ export default function ContentCard(cardProp: CardProp) {
   };
   return (
     <div className="card">
-      <div className="card-hover">
-        <button className="sec-btn">Read More</button>
-        <button>Add to Library</button>
-      </div>
+      {cardProp.user_item ? (
+        <div style={{ display: "none" }}></div>
+      ) : (
+        <div className="card-hover">
+          <button className="sec-btn">Read More</button>
+          <button>Add to Library</button>
+        </div>
+      )}
       <div className="img-cont">
         <img src={cardProp.image} alt="" />
       </div>
