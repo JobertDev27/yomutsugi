@@ -10,6 +10,7 @@ interface CardProp {
   image: string;
   genre: string[];
   user_item: boolean;
+  index?: number;
 }
 
 export default function ContentCard(cardProp: CardProp) {
@@ -18,7 +19,7 @@ export default function ContentCard(cardProp: CardProp) {
     return arr.join(", ");
   };
   return (
-    <div className="card">
+    <div className="card" key={cardProp.index}>
       {cardProp.user_item ? (
         <div style={{ display: "none" }}></div>
       ) : (

@@ -109,7 +109,7 @@ export default function Shows() {
           </form>
         </aside>
         <section className="shows-section">
-          {shows?.map((c) => {
+          {shows?.map((c, k) => {
             return (
               <ContentCard
                 name={c.name}
@@ -118,6 +118,7 @@ export default function Shows() {
                 image={c.image}
                 genre={c.genre}
                 user_item={false}
+                key={k}
               />
             );
           })}
