@@ -40,7 +40,11 @@ export default function ContentCard(cardProp: CardProp) {
           <div className="popularity-data-cont">
             <div className="upper-sect">
               <img src={starImg} alt="star" />
-              <span className="num-data">{cardProp.rating}</span>
+              {cardProp.rating ? (
+                <span className="num-data">{cardProp.rating}</span>
+              ) : (
+                <span className="num-data">N/A</span>
+              )}
             </div>
             <div className="lower-sect">
               <span className="num-lbl">Rating</span>
@@ -49,7 +53,11 @@ export default function ContentCard(cardProp: CardProp) {
           <div className="popularity-data-cont">
             <div className="upper-sect">
               <img src={rankImg} alt="rank" />
-              <span className="num-data">#{cardProp.ranking}</span>
+              {cardProp.ranking ? (
+                <span className="num-data">#{cardProp.ranking}</span>
+              ) : (
+                <span className="num-data">N/A</span>
+              )}
             </div>
             <div className="lower-sect">
               <span className="num-lbl">Ranking</span>
