@@ -2,9 +2,11 @@ import "./contentCard.css";
 import starImg from "../assets/star.png";
 import rankImg from "../assets/leaderboard.png";
 import userStarImg from "../assets/sparkle.png";
+import { Link } from "react-router";
 
 interface CardProp {
   name: string;
+  id: number;
   rating: number;
   ranking: number;
   image: string;
@@ -24,7 +26,9 @@ export default function ContentCard(cardProp: CardProp) {
         <div style={{ display: "none" }}></div>
       ) : (
         <div className="card-hover">
-          <button className="sec-btn">Read More</button>
+          <div className="sec-button">
+            <Link to={`/shows/${cardProp.id}`}>Read More</Link>
+          </div>
           <button>Add to Library</button>
         </div>
       )}

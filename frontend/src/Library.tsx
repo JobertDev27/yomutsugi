@@ -7,6 +7,7 @@ import "./library.css";
 
 interface CardProp {
   name: string;
+  id: number;
   rating: number;
   ranking: number;
   image: string;
@@ -25,6 +26,7 @@ export default function Library() {
         // added fallback measures to make sure that the content loads even with
         // incomplete json data to avoid the content not loading entirely
         name: res?.data?.title_english ?? res?.data?.title,
+        id: res?.data?.mal_id,
         rating: res?.data?.score,
         ranking: res?.data?.rank,
         image: res?.data?.images?.webp?.image_url,

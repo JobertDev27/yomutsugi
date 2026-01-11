@@ -8,6 +8,7 @@ import Library from "./Library.tsx";
 import AuthLogin from "./AuthLogin.tsx";
 import AuthSignup from "./AuthSignup.tsx";
 import Shows from "./Shows.tsx";
+import FullContent from "./FullContent.tsx";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "/Signup",
     Component: AuthSignup,
+  },
+  {
+    path: "shows/:malId",
+    Component: FullContent,
   },
 ]);
 

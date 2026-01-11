@@ -6,6 +6,7 @@ import "./shows.css";
 
 interface CardProp {
   name: string;
+  id: number;
   rating: number;
   ranking: number;
   image: string;
@@ -37,6 +38,7 @@ export default function Shows() {
       }
       const shows_data: CardProp[] = local_api.data.map((d: any) => ({
         name: d?.title_english ?? d?.title,
+        id: d?.mal_id,
         rating: d?.score,
         ranking: d?.rank,
         image: d?.images?.webp?.image_url,
@@ -113,6 +115,7 @@ export default function Shows() {
             return (
               <ContentCard
                 name={c.name}
+                id={c.id}
                 ranking={c.ranking}
                 rating={c.rating}
                 image={c.image}
