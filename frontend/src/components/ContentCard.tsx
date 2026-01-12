@@ -27,7 +27,9 @@ export default function ContentCard(cardProp: CardProp) {
       ) : (
         <div className="card-hover">
           <div className="sec-button">
-            <Link to={`/shows/${cardProp.id}`}>Read More</Link>
+            <Link className="link-button" to={`/shows/${cardProp.id}`}>
+              Read More
+            </Link>
           </div>
           <button>Add to Library</button>
         </div>

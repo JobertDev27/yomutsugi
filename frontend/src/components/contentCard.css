@@ -86,3 +86,7 @@
 .card:hover > .card-hover {
   display: flex;
 }
+
+.link-button {
+  font-size: 12px;
+}
