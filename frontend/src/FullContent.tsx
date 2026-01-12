@@ -1,32 +1,63 @@
 import { useParams } from "react-router";
 import "./fullContent.css";
+import { useEffect, useState } from "react";
+import { get_anime_by_id } from "./utils/api";
+
+interface contentProp {
+  title: string;
+  synopsis: string;
+  rank: number;
+  score: number;
+  classification: string;
+  genre: string;
+  schedule: string;
+  type: string;
+  studio: string;
+  status: string;
+  aired: string;
+  duration: string;
+  episodes: string;
+  img: string;
+  season: string;
+  year: string;
+}
 
 export default function FullContent() {
+  const [data, setData] = useState<contentProp | null>();
   let param = useParams();
-  const desc: string = `Another day, another bounty—such is the life of the often unlucky crew
-        of the Bebop. However, this routine is interrupted when Faye, who is
-        chasing a fairly worthless target on Mars, witnesses an oil tanker
-        suddenly explode, causing mass hysteria. As casualties mount due to a
-        strange disease spreading through the smoke from the blast, a whopping
-        three hundred million woolong price is placed on the head of the
-        supposed perpetrator.\n\nWith lives at stake and a solution to their
-        money problems in sight, the Bebop crew springs into action. Spike, Jet,
-        Faye, and Edward, followed closely by Ein, split up to pursue different
-        leads across Alba City. Through their individual investigations, they
-        discover a cover-up scheme involving a pharmaceutical company, revealing
-        a plot that reaches much further than the ragtag team of bounty hunters
-        could have realized.\n\n[Written by MAL Rewrite]`;
-  console.log(param);
+
+  useEffect(() => {
+    const getData = async () => {
+      const res = await get_anime_by_id(param.malId!);
+      console.log(res);
+      setData({
+        ...res.data,
+        img: res.data.images.webp.large_image_url,
+        schedule: res.data.broadcast.string,
+        aired: res.data.aired.string,
+      });
+    };
+    getData();
+  }, []);
+
   return (
     <>
-      <iframe
-        src="https://www.youtube-nocookie.com/embed/ZEkwCGJ3o7M?enablejsapi=1&wmode=opaque&autoplay=1"
-        width="560"
-        height="316"
-        allow="autoplay; encrypted-media; picture-in-picture"
-        allowFullScreen
-      ></iframe>
-      <p className="content-desc">{desc}</p>
+      <h1>{data?.title}</h1>
+      <p>{data?.synopsis}</p>
+      <p>{data?.episodes}</p>
+      <img src={data?.img} alt="cover image" />
+      <p>{data?.rank}</p>
+      <p>{data?.classification}</p>
+      <p>{data?.score}</p>
+      <p>{data?.type}</p>
+      <p>{data?.status}</p>
+      <p>{data?.schedule}</p>
+      <p>{data?.aired}</p>
+      <p>{data?.episodes}</p>
+      <p>{data?.duration}</p>
+      <p>
+        {data?.season} {data?.year}
+      </p>
     </>
   );
 }
