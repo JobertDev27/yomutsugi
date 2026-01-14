@@ -1,8 +1,5 @@
 import "./libraryCard.css";
 import starImg from "../assets/star.png";
-import rankImg from "../assets/leaderboard.png";
-import userStarImg from "../assets/sparkle.png";
-import { Link } from "react-router";
 
 interface CardProp {
   name: string;
