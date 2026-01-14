@@ -25,15 +25,15 @@ export default function Header() {
 
   return (
     <header>
-      <section className="header-nav">
-        <nav>
-          <Link to={"/shows"}>SHOWS</Link>
-          <Link to={"/library"}>LIBRARY</Link>
-          <Link to={"/recommendation"}>RECOMMENDATION</Link>
-        </nav>
-      </section>
       <section className="header-title">
         <h1>YOMUTSUGI</h1>
+      </section>
+      <section className="header-nav">
+        <nav>
+          <Link to={"/shows"}>EXPLORE</Link>
+          <Link to={"/library"}>MY LIBRARY</Link>
+          <Link to={"/recommendation"}>PROFILE</Link>
+        </nav>
       </section>
       <section className="header-auth">
         <span>{session?.user.email?.split("@")[0]}</span>
