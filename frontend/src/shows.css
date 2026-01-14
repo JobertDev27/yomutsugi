@@ -46,3 +46,7 @@ aside {
   display: flex;
   flex-direction: column;
 }
+
+.search-btn {
+  margin-top: 20px;
+}

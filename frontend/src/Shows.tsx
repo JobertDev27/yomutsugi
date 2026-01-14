@@ -100,6 +100,7 @@ export default function Shows() {
               <input type="text" />
             </div>
             <button
+              className="search-btn"
               type="submit"
               onClick={async (e) => {
                 e.preventDefault();
