@@ -1,3 +1,10 @@
 main {
   padding-top: 150px;
 }
+
+.library-shows {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}

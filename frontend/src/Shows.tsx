@@ -11,7 +11,6 @@ interface CardProp {
   ranking: number;
   image: string;
   genre: string[];
-  user_item: boolean;
   data: any;
 }
 
@@ -42,7 +41,6 @@ export default function Shows() {
         rating: d?.score,
         ranking: d?.rank,
         image: d?.images?.webp?.image_url,
-        user_item: true,
         genre: [
           // merge the 3 genre dicts that jinka sends and get only the name
           // because for some reason they needed different dicts for genre

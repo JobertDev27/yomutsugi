@@ -1,4 +1,4 @@
-import "./contentCard.css";
+import "./libraryCard.css";
 import starImg from "../assets/star.png";
 import rankImg from "../assets/leaderboard.png";
 import userStarImg from "../assets/sparkle.png";
@@ -8,80 +8,21 @@ interface CardProp {
   name: string;
   id: number;
   rating: number;
-  ranking: number;
   image: string;
-  genre: string[];
-  user_item: boolean;
   index?: number;
 }
 
 export default function LibraryCard(cardProp: CardProp) {
-  const listToString = (arr: String[]) => {
-    // since genre is a list convert it to a string
-    return arr.join(", ");
-  };
   return (
-    <div className="card" key={cardProp.index}>
-      {cardProp.user_item ? (
-        <div style={{ display: "none" }}></div>
-      ) : (
-        <div className="card-hover">
-          <div className="sec-button">
-            <Link className="link-button" to={`/shows/${cardProp.id}`}>
-              Read More
-            </Link>
-          </div>
-          <button>Add to Library</button>
-        </div>
-      )}
-      <div className="img-cont">
+    <div className="library-card">
+      <div className="library-card-img-cont">
         <img src={cardProp.image} alt="" />
       </div>
-      <div className="metadata">
-        <span className="title"> {cardProp.name} </span>
-        <span className="genre">
-          {cardProp.genre ? listToString(cardProp.genre) : "none"}
-        </span>
-        <div className="popularity-cont">
-          <div className="popularity-data-cont">
-            <div className="upper-sect">
-              <img src={starImg} alt="star" />
-              {cardProp.rating ? (
-                <span className="num-data">{cardProp.rating}</span>
-              ) : (
-                <span className="num-data">N/A</span>
-              )}
-            </div>
-            <div className="lower-sect">
-              <span className="num-lbl">Rating</span>
-            </div>
-          </div>
-          <div className="popularity-data-cont">
-            <div className="upper-sect">
-              <img src={rankImg} alt="rank" />
-              {cardProp.ranking ? (
-                <span className="num-data">#{cardProp.ranking}</span>
-              ) : (
-                <span className="num-data">N/A</span>
-              )}
-            </div>
-            <div className="lower-sect">
-              <span className="num-lbl">Ranking</span>
-            </div>
-          </div>
-          {cardProp.user_item ? (
-            <div className="popularity-data-cont">
-              <div className="upper-sect">
-                <img src={userStarImg} alt="star" />
-                <span className="num-data">unrated</span>
-              </div>
-              <div className="lower-sect">
-                <span className="num-lbl">Your Score</span>
-              </div>
-            </div>
-          ) : (
-            <div></div>
-          )}
+      <div className="library-card-info-cont">
+        <p className="card-title">{cardProp.name}</p>
+        <div className="library-card-rating-cont">
+          <img src={starImg} alt="" />
+          <p>{cardProp.rating}</p>
         </div>
       </div>
     </div>

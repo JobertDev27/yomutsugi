@@ -46,7 +46,9 @@ export default function Library() {
     <>
       <Header />
       <main>
-        {animeList ? <LibraryCard {...animeList} /> : <h1>no records</h1>}
+        <section className="library-shows">
+          {animeList ? <LibraryCard {...animeList} /> : <h1>no records</h1>}
+        </section>
       </main>
     </>
   );

@@ -22,18 +22,14 @@ export default function ContentCard(cardProp: CardProp) {
   };
   return (
     <div className="card" key={cardProp.index}>
-      {cardProp.user_item ? (
-        <div style={{ display: "none" }}></div>
-      ) : (
-        <div className="card-hover">
-          <div className="sec-button">
-            <Link className="link-button" to={`/shows/${cardProp.id}`}>
-              Read More
-            </Link>
-          </div>
-          <button>Add to Library</button>
+      <div className="card-hover">
+        <div className="sec-button">
+          <Link className="link-button" to={`/shows/${cardProp.id}`}>
+            Read More
+          </Link>
         </div>
-      )}
+        <button>Add to Library</button>
+      </div>
       <div className="img-cont">
         <img src={cardProp.image} alt="" />
       </div>
