@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import { get_anime_by_id } from "./utils/api";
 import { useState, useEffect } from "react";
-import ContentCard from "./components/ContentCard";
+import LibraryCard from "./components/LibraryCard";
 import "./library.css";
 
 interface CardProp {
@@ -46,7 +46,7 @@ export default function Library() {
     <>
       <Header />
       <main>
-        {animeList ? <ContentCard {...animeList} /> : <h1>no records</h1>}
+        {animeList ? <LibraryCard {...animeList} /> : <h1>no records</h1>}
       </main>
     </>
   );
