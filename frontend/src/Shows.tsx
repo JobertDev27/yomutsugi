@@ -60,7 +60,6 @@ export default function Shows() {
   return (
     <>
       <Header />
-
       <main className="shows-main">
         <aside>
           <form className="search-query">
