@@ -41,11 +41,24 @@ p {
 }
 
 input {
-  background-color: transparent;
+  background-color: var(--text-dark);
   border: 0;
-  border-bottom: 1px solid var(--text);
+  border-radius: 25px;
+  color: var(--bg-dark) !important;
   color: var(--text);
-  padding: 5px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* Some older versions of Chrome might need this */
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield; /* Standard property for newer browsers */
 }
 
 input:focus {
@@ -68,4 +81,5 @@ button {
   border-top: 1px solid var(--overlay1);
   border-left: 1px solid var(--overlay1);
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(#7f849c18 0%, transparent 50%);
 }

@@ -7,11 +7,10 @@ import "./library.css";
 interface CardProp {
   name: string;
   id: number;
-  rating: number;
-  ranking: number;
+  userRating: number;
   image: string;
-  genre: string[];
-  user_item: boolean;
+  episodes: number;
+  currEpisode: number;
 }
 
 export default function Library() {
@@ -26,17 +25,10 @@ export default function Library() {
         // incomplete json data to avoid the content not loading entirely
         name: res?.data?.title_english ?? res?.data?.title,
         id: res?.data?.mal_id,
-        rating: res?.data?.score,
-        ranking: res?.data?.rank,
+        userRating: 0,
         image: res?.data?.images?.webp?.image_url,
-        user_item: true,
-        genre: [
-          // merge the 3 genre dicts that jinka sends and get only the name
-          // because for some reason they needed different dicts for genre
-          ...(res?.data.genres ?? []),
-          ...(res?.data.themes ?? []),
-          ...(res?.data.demographics ?? []),
-        ].map((d) => d.name),
+        episodes: res?.data?.episodes,
+        currEpisode: 0,
       });
     };
     fetch_data();

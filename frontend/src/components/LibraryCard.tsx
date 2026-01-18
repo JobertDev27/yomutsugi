@@ -1,4 +1,6 @@
 import "./libraryCard.css";
+import linkImg from "../assets/external-link.png";
+import { useState } from "react";
 
 interface CardProp {
   name: string;
@@ -11,6 +13,9 @@ interface CardProp {
 }
 
 export default function LibraryCard(cardProp: CardProp) {
+  const [episode, setEpisode] = useState<number>(cardProp.currEpisode);
+  const [rating, setRating] = useState<number>(cardProp.userRating);
+
   return (
     <div className="library-card glow">
       <div className="library-card-img-cont">
@@ -21,9 +26,15 @@ export default function LibraryCard(cardProp: CardProp) {
           className="library-card-title"
           onClick={() => (window.location.href = `/shows/${cardProp.id}`)}
         >
-          <p className="card-title">{cardProp.name}</p>
+          <div className="library-card-title-left">
+            <p className="card-title">{cardProp.name}</p>
+            <img src={linkImg} alt="" />
+          </div>
         </div>
         <div className="library-card-rating-cont">
+          <div className="library-update-element-cont">
+            <input type="number" min={0} max={10} />
+          </div>
           <p className="user-rating">
             Your Rating: {cardProp.userRating ?? "Unrated"}
           </p>
@@ -31,10 +42,10 @@ export default function LibraryCard(cardProp: CardProp) {
         </div>
         <div className="library-card-episode-cont">
           <p>
-            Watched Episodes: {cardProp.currEpisode ?? 0} /{" "}
+            Episodes: {cardProp.currEpisode ?? 0} /{" "}
             {cardProp.episodes ?? "Null"}
           </p>
-          <button className="library-button">add episode</button>
+          <button className="library-button">update episodes</button>
         </div>
       </div>
     </div>
