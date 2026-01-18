@@ -29,6 +29,21 @@
   transition: all ease-in 200ms;
 }
 
+.library-update-element-cont {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  width: 100%;
+  background-color: var(--bg-light);
+  transform: translateY(-50%);
+  justify-content: space-between;
+}
+
+.update-inp {
+  display: flex;
+  gap: 10px;
+}
+
 .library-card-title-left {
   display: flex;
   align-items: center;
@@ -46,6 +61,7 @@
 
 .library-card-info-cont {
   width: 100%;
+  position: relative;
 }
 
 .library-card-title:hover {
@@ -67,6 +83,7 @@
   gap: 10px;
   margin-top: 10px;
   padding: 10px 0;
+  position: relative;
 
   width: 100%;
   justify-content: space-between;

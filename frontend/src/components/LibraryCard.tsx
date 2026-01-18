@@ -32,9 +32,15 @@ export default function LibraryCard(cardProp: CardProp) {
           </div>
         </div>
         <div className="library-card-rating-cont">
-          <div className="library-update-element-cont">
-            <input type="number" min={0} max={10} />
-          </div>
+          <form className="library-update-element-cont">
+            <div className="update-inp">
+              <label htmlFor="rating">Rating Score 1 - 10:</label>
+              <input type="number" name="rating" min={0} max={10} />
+            </div>
+            <button type="submit" onClick={(e) => e.preventDefault()}>
+              Update
+            </button>
+          </form>
           <p className="user-rating">
             Your Rating: {cardProp.userRating ?? "Unrated"}
           </p>

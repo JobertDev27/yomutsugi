@@ -41,7 +41,7 @@ p {
 }
 
 input {
-  background-color: var(--text-dark);
+  background-color: var(--text);
   border: 0;
   border-radius: 25px;
   color: var(--bg-dark) !important;

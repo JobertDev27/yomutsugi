@@ -1,16 +1,18 @@
 .auth-cont {
+  padding: 0;
   width: 100dvw;
   height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   box-sizing: border-box;
 }
 
 .auth-cont form {
   display: flex;
   flex-direction: column;
-  background-color: var(--overlay2);
+  background-color: var(--bg-light);
   padding: 100px 100px;
   border: 2px solid var(--accent);
   border-radius: 25px;
