@@ -34,7 +34,4 @@ header section {
   background-color: var(--bg-light);
   padding: 15px 25px;
   border-radius: 25px;
-  border-top: 1px solid var(--overlay1);
-  border-left: 1px solid var(--overlay1);
-  box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.152);
 }

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL as string,
-  import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY as string
+  import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY as string,
 );
 
 export default function Header() {
@@ -29,9 +29,9 @@ export default function Header() {
         <h1>YOMUTSUGI</h1>
       </section>
       <section className="header-nav">
-        <nav>
+        <nav className="glow">
           <Link to={"/shows"}>EXPLORE</Link>
-          <Link to={"/library"}>MY LIBRARY</Link>
+          <Link to={"/library"}>LIBRARY</Link>
           <Link to={"/recommendation"}>PROFILE</Link>
         </nav>
       </section>
