@@ -1,6 +1,5 @@
 import "./libraryCard.css";
 import linkImg from "../assets/external-link.png";
-import { useState } from "react";
 
 interface CardProp {
   name: string;
@@ -13,8 +12,8 @@ interface CardProp {
 }
 
 export default function LibraryCard(cardProp: CardProp) {
-  const [episode, setEpisode] = useState<number>(cardProp.currEpisode);
-  const [rating, setRating] = useState<number>(cardProp.userRating);
+  // const [episode, setEpisode] = useState<number>(cardProp.currEpisode);
+  // const [rating, setRating] = useState<number>(cardProp.userRating);
 
   return (
     <div className="library-card glow">
@@ -32,7 +31,7 @@ export default function LibraryCard(cardProp: CardProp) {
           </div>
         </div>
         <div className="library-card-rating-cont">
-          <form className="library-update-element-cont">
+          {/* <form className="library-update-element-cont">
             <div className="update-inp">
               <label htmlFor="rating">Rating Score 1 - 10:</label>
               <input type="number" name="rating" min={0} max={10} />
@@ -40,7 +39,7 @@ export default function LibraryCard(cardProp: CardProp) {
             <button type="submit" onClick={(e) => e.preventDefault()}>
               Update
             </button>
-          </form>
+          </form> */}
           <p className="user-rating">
             Your Rating: {cardProp.userRating ?? "Unrated"}
           </p>
