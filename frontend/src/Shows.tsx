@@ -12,6 +12,7 @@ interface CardProp {
   image: string;
   genre: string[];
   data: any;
+  episodes: number;
 }
 
 export default function Shows() {
@@ -41,6 +42,7 @@ export default function Shows() {
         rating: d?.score,
         ranking: d?.rank,
         image: d?.images?.webp?.image_url,
+        episodes: d?.episodes,
         genre: [
           // merge the 3 genre dicts that jinka sends and get only the name
           // because for some reason they needed different dicts for genre
@@ -53,7 +55,7 @@ export default function Shows() {
       setShows(shows_data);
     };
     fetch_shows();
-    console.log(query);
+    console.log(shows);
   }, [api]);
   return (
     <>
@@ -119,6 +121,7 @@ export default function Shows() {
                 image={c.image}
                 genre={c.genre}
                 user_item={false}
+                episodes={c.episodes}
                 key={k}
               />
             );

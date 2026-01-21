@@ -3,8 +3,9 @@ import starImg from "../assets/star.png";
 import rankImg from "../assets/leaderboard.png";
 import userStarImg from "../assets/sparkle.png";
 import { Link } from "react-router";
-import { createClient, type Session } from "@supabase/supabase-js";
-import { useState } from "react";
+import { createClient } from "@supabase/supabase-js";
+import { useContext } from "react";
+import { sessionContext } from "../utils/SessionProvider";
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL as string,
@@ -20,17 +21,35 @@ interface CardProp {
   genre: string[];
   user_item: boolean;
   index?: number;
+  episodes: number;
 }
 
 export default function ContentCard(cardProp: CardProp) {
-  const [session, setSession] = useState<Session | null>();
+  const userId: string | undefined = useContext(sessionContext)?.user?.id;
 
   const listToString = (arr: String[]) => {
     // since genre is a list convert it to a string
     return arr.join(", ");
   };
 
-  const addToLibrary = () => {};
+  const addToLibrary = async () => {
+    const { data, error } = await supabase.from("user_library").insert([
+      {
+        user_id: userId,
+        mal_id: cardProp.id,
+        title: cardProp.name,
+        thumbnail: cardProp.image,
+        rating: 0,
+        curr_episode: 0,
+        episodes: cardProp.episodes,
+      },
+    ]);
+    if (error) {
+      console.log(`Insert failed: ${error.message}`);
+    } else {
+      alert("anime added to library!");
+    }
+  };
 
   return (
     <div className="card" key={cardProp.index}>
@@ -40,7 +59,7 @@ export default function ContentCard(cardProp: CardProp) {
             Read More
           </Link>
         </div>
-        <button>Add to Library</button>
+        <button onClick={() => addToLibrary()}>Add to Library</button>
       </div>
       <div className="img-cont">
         <img src={cardProp.image} alt="" />
