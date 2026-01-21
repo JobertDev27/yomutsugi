@@ -1,5 +1,4 @@
 import Header from "./components/Header";
-import { get_anime_by_id } from "./utils/api";
 import { useState, useEffect, useContext } from "react";
 import LibraryCard from "./components/LibraryCard";
 import { createClient } from "@supabase/supabase-js";
