@@ -3,6 +3,13 @@ import starImg from "../assets/star.png";
 import rankImg from "../assets/leaderboard.png";
 import userStarImg from "../assets/sparkle.png";
 import { Link } from "react-router";
+import { createClient, type Session } from "@supabase/supabase-js";
+import { useState } from "react";
+
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL as string,
+  import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY as string,
+);
 
 interface CardProp {
   name: string;
@@ -16,10 +23,15 @@ interface CardProp {
 }
 
 export default function ContentCard(cardProp: CardProp) {
+  const [session, setSession] = useState<Session | null>();
+
   const listToString = (arr: String[]) => {
     // since genre is a list convert it to a string
     return arr.join(", ");
   };
+
+  const addToLibrary = () => {};
+
   return (
     <div className="card" key={cardProp.index}>
       <div className="card-hover">

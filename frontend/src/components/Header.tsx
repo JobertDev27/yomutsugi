@@ -1,7 +1,8 @@
 import { Link, useNavigate } from "react-router";
 import "./header.css";
 import { createClient, type Session } from "@supabase/supabase-js";
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { sessionContext } from "../utils/SessionProvider";
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL as string,
@@ -10,18 +11,13 @@ const supabase = createClient(
 
 export default function Header() {
   const navigate = useNavigate();
-  const [session, setSession] = useState<Session | null>();
+  const session: Session | null = useContext(sessionContext);
+  const userEmail = session?.user?.email?.split("@")[0] ?? "Guest";
 
   const handleLogout = async (): Promise<void> => {
     await supabase.auth.signOut();
     navigate("/login", { replace: true });
   };
-
-  useEffect(() => {
-    supabase.auth
-      .getSession()
-      .then(({ data: { session } }) => setSession(session));
-  }, []);
 
   return (
     <header>
@@ -36,7 +32,7 @@ export default function Header() {
         </nav>
       </section>
       <section className="header-auth">
-        <span>{session?.user.email?.split("@")[0]}</span>
+        <span>{userEmail}</span>
         <button className="logout-btn" onClick={handleLogout}>
           LOG OUT
         </button>

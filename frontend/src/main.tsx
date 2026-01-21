@@ -3,17 +3,17 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router";
 import "./global.css";
 import ProtectedRoute from "./utils/ProtectedRoute.tsx";
-import App from "./App.tsx";
 import Library from "./Library.tsx";
 import AuthLogin from "./AuthLogin.tsx";
 import AuthSignup from "./AuthSignup.tsx";
 import Shows from "./Shows.tsx";
 import FullContent from "./FullContent.tsx";
+import SessionProvider from "./utils/SessionProvider.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: App,
+    Component: AuthLogin,
   },
   {
     path: "/library",
@@ -51,6 +51,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>
+    <SessionProvider>
+      <RouterProvider router={router} />
+    </SessionProvider>
+  </StrictMode>,
 );
