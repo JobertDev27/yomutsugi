@@ -5,15 +5,6 @@ import { createClient } from "@supabase/supabase-js";
 import "./library.css";
 import { sessionContext } from "./utils/SessionProvider";
 
-interface CardProp {
-  name: string;
-  id: number;
-  userRating: number;
-  image: string;
-  episodes: number;
-  currEpisode: number;
-}
-
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL as string,
   import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY as string,
