@@ -1,8 +1,10 @@
 import Header from "./components/Header";
 import { get_anime_by_id } from "./utils/api";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import LibraryCard from "./components/LibraryCard";
+import { createClient } from "@supabase/supabase-js";
 import "./library.css";
+import { sessionContext } from "./utils/SessionProvider";
 
 interface CardProp {
   name: string;
@@ -13,8 +15,14 @@ interface CardProp {
   currEpisode: number;
 }
 
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL as string,
+  import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY as string,
+);
+
 export default function Library() {
   const [animeList, setAnimeList] = useState<CardProp | null>(null);
+  const userId = useContext(sessionContext)?.user?.id;
 
   useEffect(() => {
     const fetch_data = async () => {

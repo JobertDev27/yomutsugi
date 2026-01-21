@@ -33,6 +33,7 @@ export default function ContentCard(cardProp: CardProp) {
   };
 
   const addToLibrary = async () => {
+    // TODO: prevent adding of duplicate
     const { data, error } = await supabase.from("user_library").insert([
       {
         user_id: userId,
@@ -47,7 +48,7 @@ export default function ContentCard(cardProp: CardProp) {
     if (error) {
       console.log(`Insert failed: ${error.message}`);
     } else {
-      alert("anime added to library!");
+      alert("anime added to library!: " + data);
     }
   };
 
