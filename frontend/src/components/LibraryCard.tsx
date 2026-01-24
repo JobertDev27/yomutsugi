@@ -26,7 +26,7 @@ export default function LibraryCard(cardProp: CardProp) {
           onClick={() => (window.location.href = `/shows/${cardProp.id}`)}
         >
           <div className="library-card-title-left">
-            <p className="card-title">{cardProp.name}</p>
+            <p className="libcard-title">{cardProp.name}</p>
             <img src={linkImg} alt="" />
           </div>
         </div>

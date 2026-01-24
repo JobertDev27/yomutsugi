@@ -1,7 +1,7 @@
 .library-card {
   display: flex;
   flex-direction: row;
-  height: clamp(50px, 200px, 200px);
+  height: 200px;
   padding: 20px;
   background-color: var(--bg-light);
   width: clamp(250px, 100%, 700px);
@@ -57,6 +57,14 @@
 .library-card-title img {
   width: 18px;
   height: 18px;
+}
+
+.libcard-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--accent);
+  max-width: 500px;
 }
 
 .library-card-info-cont {

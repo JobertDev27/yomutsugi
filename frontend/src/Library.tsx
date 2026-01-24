@@ -37,7 +37,13 @@ export default function Library() {
         <section className="library-shows">
           {animeList?.map((data) => {
             return (
-              <LibraryCard {...data} name={data.title} image={data.thumbnail} />
+              <LibraryCard
+                {...data}
+                name={data.title}
+                image={data.thumbnail}
+                id={data.mal_id}
+                key={data.mal_id}
+              />
             );
           })}
         </section>
