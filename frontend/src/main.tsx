@@ -44,7 +44,7 @@ const router = createBrowserRouter([
     Component: AuthSignup,
   },
   {
-    path: "shows/:malId",
+    path: "/:malId",
     Component: FullContent,
   },
 ]);
