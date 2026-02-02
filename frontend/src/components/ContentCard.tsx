@@ -56,7 +56,7 @@ export default function ContentCard(cardProp: CardProp) {
     <div className="card" key={cardProp.index}>
       <div className="card-hover">
         <div className="sec-button">
-          <Link className="link-button" to={`/shows/${cardProp.id}`}>
+          <Link className="link-button" to={`/${cardProp.id}`}>
             Read More
           </Link>
         </div>

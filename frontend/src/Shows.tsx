@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
 import { get_anime, get_anime_by_query } from "./utils/api";
 import ContentCard from "./components/ContentCard";
 import Header from "./components/Header";
@@ -17,7 +18,8 @@ interface CardProp {
 
 export default function Shows() {
   const [shows, setShows] = useState<CardProp[] | null>(null);
-  const [api, setApi] = useState<any | null>(null);
+
+  const [queryParams, setQueryParams] = useSearchParams();
 
   // Search queries
   const [query, setQuery] = useState<string>("");
@@ -30,13 +32,11 @@ export default function Shows() {
 
   useEffect(() => {
     const fetch_shows = async () => {
-      let local_api;
-      if (api) {
-        local_api = api;
-      } else {
-        local_api = await get_anime();
-      }
-      const shows_data: CardProp[] = local_api.data.map((d: any) => ({
+      const q = queryParams.get("q");
+      const res = queryParams.get("q")
+        ? await get_anime_by_query(q ?? "")
+        : await get_anime();
+      const shows_data: CardProp[] = res.data.map((d: any) => ({
         name: d?.title_english ?? d?.title,
         id: d?.mal_id,
         rating: d?.score,
@@ -51,18 +51,23 @@ export default function Shows() {
           ...(d.demographics ?? []),
         ].map((f) => f.name),
       }));
-      setShows(null);
       setShows(shows_data);
     };
     fetch_shows();
-    console.log(shows);
-  }, [api]);
+  }, [queryParams]);
   return (
     <>
       <Header />
       <main className="shows-main">
         <aside>
-          <form className="search-query">
+          <form
+            className="search-query"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const form = new FormData(e.currentTarget);
+              setQueryParams({ q: String(form.get("search")) });
+            }}
+          >
             <div className="query-cont">
               <label htmlFor="search">Search</label>
               <input
@@ -98,14 +103,7 @@ export default function Shows() {
               <label htmlFor="">End Date</label>
               <input type="text" />
             </div> */}
-            <button
-              className="search-btn"
-              type="submit"
-              onClick={async (e) => {
-                e.preventDefault();
-                setApi(await get_anime_by_query(query));
-              }}
-            >
+            <button className="search-btn" type="submit">
               SEARCH
             </button>
           </form>
