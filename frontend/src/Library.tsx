@@ -33,7 +33,7 @@ export default function Library() {
   return (
     <>
       <Header />
-      <main>
+      <main className="library">
         <section className="library-shows">
           {animeList?.map((data) => {
             return (

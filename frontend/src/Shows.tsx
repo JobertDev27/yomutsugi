@@ -72,7 +72,7 @@ export default function Shows() {
                 value={query}
               />
             </div>
-            <div className="rating-cont">
+            {/* <div className="rating-cont">
               <div className="rating-sub-cont">
                 <label htmlFor="rating">Rating</label>
                 <input type="text" name="rating" />
@@ -97,7 +97,7 @@ export default function Shows() {
             <div className="query-cont">
               <label htmlFor="">End Date</label>
               <input type="text" />
-            </div>
+            </div> */}
             <button
               className="search-btn"
               type="submit"
