@@ -1,14 +1,9 @@
 import Header from "./components/Header";
 import { useState, useEffect, useContext } from "react";
 import LibraryCard from "./components/LibraryCard";
-import { createClient } from "@supabase/supabase-js";
+import supabase from "./utils/supabase";
 import "./library.css";
 import { sessionContext } from "./utils/SessionProvider";
-
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL as string,
-  import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY as string,
-);
 
 export default function Library() {
   const [animeList, setAnimeList] = useState<any[] | null>(null);

@@ -1,13 +1,9 @@
 import { Link, useNavigate } from "react-router";
 import "./header.css";
-import { createClient, type Session } from "@supabase/supabase-js";
+import { type Session } from "@supabase/supabase-js";
+import supabase from "../utils/supabase";
 import { useContext } from "react";
 import { sessionContext } from "../utils/SessionProvider";
-
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL as string,
-  import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY as string,
-);
 
 export default function Header() {
   const navigate = useNavigate();

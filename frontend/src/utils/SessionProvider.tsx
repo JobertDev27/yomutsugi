@@ -1,10 +1,6 @@
 import { useEffect, useState, createContext, type ReactNode } from "react";
-import { createClient, type Session } from "@supabase/supabase-js";
-
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL as string,
-  import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY as string,
-);
+import { type Session } from "@supabase/supabase-js";
+import supabase from "./supabase";
 
 export const sessionContext = createContext<Session | null>(null);
 

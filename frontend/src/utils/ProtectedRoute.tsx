@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { createClient, type Session } from "@supabase/supabase-js";
+import { type Session } from "@supabase/supabase-js";
 import { Navigate } from "react-router";
-
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL as string,
-  import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY as string
-);
+import supabase from "./supabase";
 
 export default function ProtectedRoute({
   children,
