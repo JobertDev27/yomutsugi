@@ -1,18 +1,27 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useNavigate, Link } from "react-router";
 import "./auth.css";
+import { sessionContext } from "./utils/SessionProvider";
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL as string,
-  import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY as string
+  import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY as string,
 );
 
 export default function AuthLogin() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const session = useContext(sessionContext);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log(session);
+    if (session) {
+      navigate("/library");
+    }
+  }, [session]);
 
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

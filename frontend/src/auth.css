@@ -30,6 +30,7 @@
 .input-cont {
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 
 .link {
