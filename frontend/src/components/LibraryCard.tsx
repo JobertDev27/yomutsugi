@@ -23,7 +23,7 @@ export default function LibraryCard(cardProp: CardProp) {
       <div className="library-card-info-cont">
         <div
           className="library-card-title"
-          onClick={() => (window.location.href = `/shows/${cardProp.id}`)}
+          onClick={() => (window.location.href = `/${cardProp.id}`)}
         >
           <div className="library-card-title-left">
             <p className="libcard-title">{cardProp.name}</p>

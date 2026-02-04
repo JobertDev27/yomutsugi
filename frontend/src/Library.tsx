@@ -10,6 +10,8 @@ export default function Library() {
   const userId = useContext(sessionContext)?.user?.id;
 
   useEffect(() => {
+    if (!userId) return;
+
     const fetch_data = async () => {
       const { data, error } = await supabase
         .from("user_library")
@@ -23,7 +25,8 @@ export default function Library() {
       }
     };
     fetch_data();
-  }, []);
+  }, [userId]);
+
   console.log(animeList);
   return (
     <>

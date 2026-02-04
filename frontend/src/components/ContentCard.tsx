@@ -3,14 +3,9 @@ import starImg from "../assets/star.png";
 import rankImg from "../assets/leaderboard.png";
 import userStarImg from "../assets/sparkle.png";
 import { Link } from "react-router";
-import { createClient } from "@supabase/supabase-js";
+import supabase from "../utils/supabase";
 import { useContext } from "react";
 import { sessionContext } from "../utils/SessionProvider";
-
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL as string,
-  import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY as string,
-);
 
 interface CardProp {
   name: string;
@@ -28,12 +23,11 @@ export default function ContentCard(cardProp: CardProp) {
   const userId: string | undefined = useContext(sessionContext)?.user?.id;
 
   const listToString = (arr: String[]) => {
-    // since genre is a list convert it to a string
+    // since genre is a list convert it to a string and join with ,
     return arr.join(", ");
   };
 
   const addToLibrary = async () => {
-    // TODO: prevent adding of duplicate
     const { data, error } = await supabase.from("user_library").insert([
       {
         user_id: userId,
@@ -46,9 +40,11 @@ export default function ContentCard(cardProp: CardProp) {
       },
     ]);
     if (error) {
-      console.log(`Insert failed: ${error.message}`);
+      alert("anime already in library!");
+      console.log(error);
     } else {
-      alert("anime added to library!: " + data);
+      alert("anime added to library!");
+      console.log(data);
     }
   };
 
