@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import "./fullContent.css";
 import { useEffect, useState } from "react";
 import { get_anime_by_id } from "./utils/api";
+import Header from "./components/Header"
 
 interface contentProp {
   title: string;
@@ -49,6 +50,10 @@ export default function FullContent() {
 
   return (
     <>
+    <Header />
+    <main>
+      <section></section>
+    </main>
       <h1>{data?.title}</h1>
       <p>{data?.synopsis}</p>
       <p>{data?.episodes}</p>
