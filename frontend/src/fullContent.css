@@ -1,3 +1,43 @@
 .content-desc {
   white-space: pre-line;
 }
+
+.content-main {
+  display: flex;
+  gap: 20px;
+  padding: 110px 50px;
+}
+
+.content-seperator {
+  border-bottom: 1px solid var(--text);
+  width: 1fr;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.content-section,
+.content-section-metadata {
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+}
+
+.content-section {
+  gap: 20px;
+}
+
+.content-section-metadata {
+  width: 100%;
+}
+
+.content-section img {
+  max-width: 425px;
+}
+
+.content-section-metadata h1 {
+  color: var(--accent);
+}
+
+.content-section-metadata p {
+  margin: 2px 0;
+}

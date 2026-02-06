@@ -2,14 +2,14 @@ import { useParams } from "react-router";
 import "./fullContent.css";
 import { useEffect, useState } from "react";
 import { get_anime_by_id } from "./utils/api";
-import Header from "./components/Header"
+import Header from "./components/Header";
 
 interface contentProp {
   title: string;
   synopsis: string;
   rank: number;
   score: number;
-  classification: string;
+  rating: string;
   genre: string[];
   schedule: string;
   type: string;
@@ -50,27 +50,38 @@ export default function FullContent() {
 
   return (
     <>
-    <Header />
-    <main>
-      <section></section>
-    </main>
-      <h1>{data?.title}</h1>
-      <p>{data?.synopsis}</p>
-      <p>{data?.episodes}</p>
-      <img src={data?.img} alt="cover image" />
-      <p>{data?.rank}</p>
-      <p>{data?.classification}</p>
-      <p>{data?.score}</p>
-      <p>{data?.type}</p>
-      <p>{data?.status}</p>
-      <p>{data?.schedule}</p>
-      <p>{data?.aired}</p>
-      <p>{data?.episodes}</p>
-      <p>{data?.duration}</p>
-      <p>
-        {data?.season} {data?.year}
-      </p>
-      <p>{data?.genre.join(", ")}</p>
+      <Header />
+      <main className="content-main">
+        <section className="content-section">
+          <img src={data?.img} alt="cover image" />
+          <button>ADD TO LIBRARY</button>
+        </section>
+        <section className="content-section-metadata">
+          <div className="content-seperator">
+            <h1>{data?.title}</h1>
+          </div>
+          <div className="content-seperator">
+            {" "}
+            <p>{data?.synopsis}</p>
+          </div>
+          <div className="content-seperator">
+            <p>Ranking: {data?.rank}</p>
+            <p>Rating: {data?.score}</p>
+            <p>Genre: {data?.genre.join(", ")}</p>
+            <p>Classification: {data?.rating}</p>
+          </div>
+          <p>Episodes: {data?.episodes}</p>
+          <p>Duration: {data?.duration}</p>
+          <p>Date Aired: {data?.aired}</p>
+          {data?.schedule && <p>Release Schedule: {data?.schedule}</p>}
+          <p>Show Type: {data?.type}</p>
+          <p>Studio: {data?.studio}</p>
+          <p>Status: {data?.status}</p>
+          <p>
+            Season Aired: {data?.season} {data?.year}
+          </p>
+        </section>
+      </main>
     </>
   );
 }

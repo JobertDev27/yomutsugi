@@ -2,7 +2,7 @@ header {
   display: flex;
   width: 100%;
   height: fit-content;
-  padding: 10px 50px;
+  padding: 25px 50px;
   box-sizing: border-box;
   justify-content: space-around;
   border: 0;
