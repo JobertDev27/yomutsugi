@@ -77,41 +77,43 @@ export default function FullContent() {
   return (
     <>
       <Header />
-      <main className="content-main">
-        <section className="content-section">
-          <img src={apiData?.img} alt="cover image" />
-          {isListed ? (
-            <button>REMOVE FROM LIBRARY</button>
-          ) : (
-            <button>ADD TO LIBRARY</button>
-          )}
-        </section>
-        <section className="content-section-metadata">
-          <div className="content-seperator">
-            <h1>{apiData?.title}</h1>
-          </div>
-          <div className="content-seperator">
-            {" "}
-            <p>{apiData?.synopsis}</p>
-          </div>
-          <div className="content-seperator">
-            <p>Ranking: {apiData?.rank}</p>
-            <p>Rating: {apiData?.score}</p>
-            <p>Genre: {apiData?.genre.join(", ")}</p>
-            <p>Classification: {apiData?.rating}</p>
-          </div>
-          <p>Episodes: {apiData?.episodes}</p>
-          <p>Duration: {apiData?.duration}</p>
-          <p>Date Aired: {apiData?.aired}</p>
-          {apiData?.schedule && <p>Release Schedule: {apiData?.schedule}</p>}
-          <p>Show Type: {apiData?.type}</p>
-          <p>Studio: {apiData?.studio}</p>
-          <p>Status: {apiData?.status}</p>
-          <p>
-            Season Aired: {apiData?.season} {apiData?.year}
-          </p>
-        </section>
-      </main>
+      {apiData && (
+        <main className="content-main">
+          <section className="content-section">
+            <img src={apiData?.img} alt="cover image" />
+            {isListed ? (
+              <button>REMOVE FROM LIBRARY</button>
+            ) : (
+              <button>ADD TO LIBRARY</button>
+            )}
+          </section>
+          <section className="content-section-metadata">
+            <div className="content-seperator">
+              <h1>{apiData?.title}</h1>
+            </div>
+            <div className="content-seperator">
+              {" "}
+              <p>{apiData?.synopsis}</p>
+            </div>
+            <div className="content-seperator">
+              <p>Ranking: {apiData?.rank}</p>
+              <p>Rating: {apiData?.score}</p>
+              <p>Genre: {apiData?.genre.join(", ")}</p>
+              <p>Classification: {apiData?.rating}</p>
+            </div>
+            <p>Episodes: {apiData?.episodes}</p>
+            <p>Duration: {apiData?.duration}</p>
+            <p>Date Aired: {apiData?.aired}</p>
+            {apiData?.schedule && <p>Release Schedule: {apiData?.schedule}</p>}
+            <p>Show Type: {apiData?.type}</p>
+            <p>Studio: {apiData?.studio}</p>
+            <p>Status: {apiData?.status}</p>
+            <p>
+              Season Aired: {apiData?.season} {apiData?.year}
+            </p>
+          </section>
+        </main>
+      )}
     </>
   );
 }
