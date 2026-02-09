@@ -8,18 +8,17 @@
 </div>
 
 
+> ℹ️ This app only allows users to store shows they want to watch and doesn't provide streaming services of the shows
 <img width="1863" height="1040" alt="image" src="https://github.com/user-attachments/assets/180f63a2-d397-4d8a-8383-82cf5f479fa3" />
-
 
 <div align="center">
 
 </div>
 
 
-[Live Demo](https://yomutsugi.netlify.app)
+## Live Demo
+https://yomutsugi.netlify.app
 
-
-> ℹ️ This app only allows users to store shows they want to watch and doesn't provide streaming services of the shows
 
 ## Features
 - Optimized search engine to find shows by tags, ratings, release date and show type
