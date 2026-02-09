@@ -12,7 +12,7 @@
 .auth-cont form {
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-light);
+  background-color: var(--bg-dark);
   padding: 100px 100px;
   border: 2px solid var(--accent);
   border-radius: 25px;

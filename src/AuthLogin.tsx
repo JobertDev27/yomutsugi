@@ -50,7 +50,7 @@ export default function AuthLogin() {
         <div className="input-cont">
           <label htmlFor="password">Password</label>
           <input
-            type="text"
+            type="password"
             value={password}
             placeholder="Your password"
             required
