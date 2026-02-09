@@ -1,7 +1,6 @@
 .library {
   padding: 150px 0;
   display: flex;
-  align-items: center;
   justify-content: center;
   width: 100%;
   box-sizing: border-box;
@@ -9,8 +8,6 @@
 
 .library-shows {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: fit-content;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(6, 1fr);
   gap: 20px;
 }

@@ -1,108 +1,35 @@
-.library-card {
-  display: flex;
-  flex-direction: row;
-  height: 200px;
-  padding: 20px;
-  background-color: var(--bg-light);
-  width: clamp(250px, 100%, 700px);
-  border-radius: 25px;
-  gap: 15px;
-  box-sizing: border-box;
+.lib-card-cont {
+  position: relative;
 }
 
-.library-card-img-cont,
-.library-card-img-cont img {
-  height: 100%;
+.lib-card-cont img {
+  width: 250px;
+  height: 350px;
 }
 
-.card-title {
-  font-size: 18px;
-  color: var(--accent);
-  margin: 0;
-}
-
-.library-card-title {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all ease-in 200ms;
-}
-
-.library-update-element-cont {
+.lib-card-info {
   position: absolute;
-  top: 50%;
-  display: flex;
+  bottom: 0;
   width: 100%;
-  background-color: var(--bg-light);
-  transform: translateY(-50%);
-  justify-content: space-between;
-}
-
-.update-inp {
+  height: 80px;
+  padding: 20px;
+  box-sizing: border-box;
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.7) 75%,
+    rgba(237, 221, 83, 0) 100%
+  );
 }
 
-.library-card-title-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.library-card-title-left p {
-  font-size: 22px;
-}
-
-.library-card-title img {
-  width: 18px;
-  height: 18px;
-}
-
-.libcard-title {
+.lib-card-title {
+  font-weight: 800;
+  font-size: 16px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  -webkit-line-clamp: 2; /* number of lines to show */
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  color: var(--accent);
-  max-width: 500px;
-}
-
-.library-card-info-cont {
-  width: 100%;
-  position: relative;
-}
-
-.library-card-title:hover {
-  transform: translateY(-2px);
-  scale: 1.02;
-  transition: all ease-in 200ms;
-}
-
-.library-card-rating-cont img {
-  width: 16px;
-  aspect-ratio: 1/1;
-}
-
-.library-card-rating-cont,
-.library-card-episode-cont {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-  padding: 10px 0;
-  position: relative;
-
-  width: 100%;
-  justify-content: space-between;
-  border-top: 1px var(--overlay1) solid;
-}
-
-.library-button {
-  padding: 5px 15px;
-  font-size: 16px;
-  background-color: transparent;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-weight: 500;
 }
