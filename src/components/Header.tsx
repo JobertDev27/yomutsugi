@@ -8,7 +8,6 @@ import { sessionContext } from "../utils/SessionProvider";
 export default function Header() {
   const navigate = useNavigate();
   const session: Session | null = useContext(sessionContext);
-  const userEmail = session?.user?.email?.split("@")[0] ?? "Guest";
 
   const handleLogout = async (): Promise<void> => {
     await supabase.auth.signOut();
