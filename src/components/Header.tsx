@@ -1,13 +1,9 @@
 import { Link, useNavigate } from "react-router";
 import "./styles/header.css";
-import { type Session } from "@supabase/supabase-js";
 import supabase from "../utils/supabase";
-import { useContext } from "react";
-import { sessionContext } from "../utils/SessionProvider";
 
 export default function Header() {
   const navigate = useNavigate();
-  const session: Session | null = useContext(sessionContext);
 
   const handleLogout = async (): Promise<void> => {
     await supabase.auth.signOut();
