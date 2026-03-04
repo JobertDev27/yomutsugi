@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router";
-import "./header.css";
+import "./styles/header.css";
 import { type Session } from "@supabase/supabase-js";
 import supabase from "../utils/supabase";
 import { useContext } from "react";

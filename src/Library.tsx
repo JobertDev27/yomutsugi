@@ -2,7 +2,7 @@ import Header from "./components/Header";
 import { useState, useEffect, useContext } from "react";
 import LibraryCard from "./components/LibraryCard";
 import supabase from "./utils/supabase";
-import "./library.css";
+import "./styles/library.css";
 import { sessionContext } from "./utils/SessionProvider";
 
 export default function Library() {

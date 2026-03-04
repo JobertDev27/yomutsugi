@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router";
-import "./global.css";
+import "./styles/global.css";
 import ProtectedRoute from "./utils/ProtectedRoute.tsx";
 import Library from "./Library.tsx";
 import AuthLogin from "./AuthLogin.tsx";

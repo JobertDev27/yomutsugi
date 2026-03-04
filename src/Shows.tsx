@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router";
 import { get_anime, get_anime_by_query } from "./utils/api";
 import ContentCard from "./components/ContentCard";
 import Header from "./components/Header";
-import "./shows.css";
+import "./styles/shows.css";
 
 interface CardProp {
   name: string;

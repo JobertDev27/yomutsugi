@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import "./libraryCard.css";
+import "./styles/libraryCard.css";
 
 interface CardProp {
   name: string;

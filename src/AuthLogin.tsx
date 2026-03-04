@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate, Link } from "react-router";
-import "./auth.css";
+import "./styles/auth.css";
 import { sessionContext } from "./utils/SessionProvider";
 import supabase from "./utils/supabase";
 
