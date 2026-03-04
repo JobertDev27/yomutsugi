@@ -20,15 +20,11 @@ export default function Header() {
       <section className="header-title">
         <h1>YOMUTSUGI</h1>
       </section>
-      <section className="header-nav">
-        <nav className="glow">
+      <section className="header-auth">
+        <nav className="header-nav">
           <Link to={"/shows"}>EXPLORE</Link>
           <Link to={"/library"}>LIBRARY</Link>
-          <Link to={"/recommendation"}>PROFILE</Link>
         </nav>
-      </section>
-      <section className="header-auth">
-        <span>{userEmail}</span>
         <button className="logout-btn" onClick={handleLogout}>
           LOG OUT
         </button>

@@ -18,20 +18,11 @@ header section {
 }
 
 .header-nav {
-  justify-content: center;
+  display: flex;
+  gap: 15px;
 }
 
 .header-auth {
   justify-content: flex-end;
   gap: 20px;
-}
-
-.header-nav nav {
-  display: flex;
-  align-items: center;
-  width: 80%;
-  justify-content: space-between;
-  background-color: var(--bg-light);
-  padding: 15px 25px;
-  border-radius: 25px;
 }
