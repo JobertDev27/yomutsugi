@@ -19,7 +19,7 @@ header section {
 
 .header-nav {
   display: flex;
-  gap: 15px;
+  gap: 20px;
 }
 
 .header-auth {

@@ -1,5 +1,6 @@
 .lib-card-cont {
   position: relative;
+  cursor: pointer;
 }
 
 .lib-card-cont img {
