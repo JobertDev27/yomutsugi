@@ -4,8 +4,7 @@
 }
 
 .lib-card-cont img {
-  width: 250px;
-  height: 350px;
+  height: 200;
 }
 
 .lib-card-info {
@@ -24,13 +23,38 @@
   );
 }
 
+.card-score,
+.card-rank {
+  position: absolute;
+  background-color: var(--accent);
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+.card-rank {
+  top: 10px;
+  left: 10px;
+}
+
+.card-score {
+  top: 10px;
+  right: 10px;
+}
+
+.card-score p,
+.card-rank p {
+  color: var(--bg);
+  font-weight: 800;
+  font-size: 12px;
+}
+
 .lib-card-title {
   font-weight: 800;
   font-size: 16px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   line-clamp: 2;
-  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
 }

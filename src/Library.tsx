@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import { useState, useEffect, useContext } from "react";
-import LibraryCard from "./components/LibraryCard";
+import ShowCard from "./components/ShowCard";
 import supabase from "./utils/supabase";
 import "./styles/library.css";
 import { sessionContext } from "./utils/SessionProvider";
@@ -35,13 +35,14 @@ export default function Library() {
         <section className="library-shows">
           {animeList?.map((data) => {
             return (
-              <LibraryCard
-                {...data}
-                name={data.title}
-                image={data.thumbnail}
-                id={data.mal_id}
-                key={data.mal_id}
-              />
+              // <ShowCard
+              //   {...data}
+              //   name={data.title}
+              //   image={data.thumbnail}
+              //   id={data.mal_id}
+              //   key={data.mal_id}
+              // />
+              <p>Under Construction</p>
             );
           })}
         </section>

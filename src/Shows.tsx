@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 import { get_anime, get_anime_by_query } from "./utils/api";
-import ContentCard from "./components/ContentCard";
+import ShowCard from "./components/ShowCard";
 import Header from "./components/Header";
 import "./styles/shows.css";
 
@@ -104,7 +104,7 @@ export default function Shows() {
         <section className="shows-section">
           {shows?.map((c, k) => {
             return (
-              <ContentCard
+              <ShowCard
                 name={c.name}
                 id={c.id}
                 ranking={c.ranking}
