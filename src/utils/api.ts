@@ -1,13 +1,12 @@
-async function jikan(query: String) {
-  try {
-    const res = await fetch(`https://api.jikan.moe/v4/${query}`);
-    if (!res.ok) {
-      return res.statusText;
-    }
-    return await res.json();
-  } catch (error) {
-    return console.error(error);
+async function jikan(query: string) {
+  const api = "https://api.jikan.moe/v4/";
+  const res = await fetch(api + query);
+
+  if (!res.ok) {
+    return res.statusText;
   }
+
+  return await res.json();
 }
 
 export const get_anime = () => jikan("top/anime");
