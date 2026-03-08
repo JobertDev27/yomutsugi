@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import { useState, useEffect, useContext } from "react";
-import ShowCard from "./components/ShowCard";
+// import ShowCard from "./components/ShowCard";
 import supabase from "./utils/supabase";
 import "./styles/library.css";
 import { sessionContext } from "./utils/SessionProvider";
