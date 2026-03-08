@@ -43,13 +43,6 @@ export default function Shows() {
         ranking: d?.rank,
         image: d?.images?.webp?.image_url,
         episodes: d?.episodes,
-        genre: [
-          // merge the 3 genre dicts that jinka sends and get only the name
-          // because for some reason they needed different dicts for genre
-          ...(d.genres ?? []),
-          ...(d.themes ?? []),
-          ...(d.demographics ?? []),
-        ].map((f) => f.name),
       }));
       setShows(shows_data);
     };
