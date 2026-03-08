@@ -77,7 +77,7 @@ export default function Shows() {
                 value={query}
               />
             </div>
-            {/* <div className="rating-cont">
+            <div className="rating-cont">
               <div className="rating-sub-cont">
                 <label htmlFor="rating">Rating</label>
                 <input type="text" name="rating" />
@@ -96,13 +96,13 @@ export default function Shows() {
               <input type="text" />
             </div>
             <div className="query-cont">
-              <label htmlFor="">Start Date</label>
+              <label htmlFor="season">Season</label>
               <input type="text" />
             </div>
             <div className="query-cont">
-              <label htmlFor="">End Date</label>
-              <input type="text" />
-            </div> */}
+              <label htmlFor="year">Year</label>
+              <input type="number" />
+            </div>
             <button className="search-btn" type="submit">
               SEARCH
             </button>
