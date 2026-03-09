@@ -121,7 +121,6 @@ export default function Shows() {
                   ranking={c.ranking}
                   rating={c.rating}
                   image={c.image}
-                  genre={c.genre}
                   user_item={false}
                   episodes={c.episodes}
                   key={k}
