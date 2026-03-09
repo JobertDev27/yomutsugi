@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
-import { get_anime, get_anime_banner, get_anime_by_query } from "./utils/api";
+import { getAnime, getAnimeBanner, getAnimeByQuery } from "./utils/api";
 import ShowCard from "./components/ShowCard";
 import Header from "./components/Header";
 import "./styles/shows.css";
@@ -38,7 +38,7 @@ export default function Shows() {
 
   useEffect(() => {
     const fetchBanner = async () => {
-      const res = await get_anime_banner();
+      const res = await getAnimeBanner();
       setBannerShows(parseData(res));
     };
     fetchBanner();
@@ -48,8 +48,8 @@ export default function Shows() {
     const fetchShows = async () => {
       const q = queryParams.get("q");
       const res = queryParams.get("q")
-        ? await get_anime_by_query(q ?? "")
-        : await get_anime();
+        ? await getAnimeByQuery(q ?? "")
+        : await getAnime();
 
       setShows(parseData(res));
     };

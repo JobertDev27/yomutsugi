@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import "./styles/fullContent.css";
 import { useEffect, useState, useContext } from "react";
-import { get_anime_by_id } from "./utils/api";
+import { getAnimeById } from "./utils/api";
 import Header from "./components/Header";
 import { sessionContext } from "./utils/SessionProvider";
 import supabase from "./utils/supabase";
@@ -38,7 +38,7 @@ export default function FullContent() {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await get_anime_by_id(param.malId!);
+      const res = await getAnimeById(param.malId!);
       console.log(res);
       setApiData({
         ...res.data,
