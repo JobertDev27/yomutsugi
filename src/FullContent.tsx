@@ -6,6 +6,8 @@ import Header from "./components/Header";
 import { sessionContext } from "./utils/SessionProvider";
 import supabase from "./utils/supabase";
 
+// TODO: fix show checking
+
 interface contentProp {
   title: string;
   mal_id: string;

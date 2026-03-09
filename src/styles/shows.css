@@ -14,10 +14,11 @@
 }
 
 aside {
-  width: 450px;
+  width: 400px;
   box-sizing: border-box;
   font-weight: 700;
   position: relative;
+  border-radius: 25px;
 }
 
 .search-query {
