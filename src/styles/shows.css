@@ -1,8 +1,15 @@
 .shows-main {
   display: flex;
+  flex-direction: column;
+  padding: 100px 30px;
+  box-sizing: border-box;
+  gap: 50px;
+}
+
+.shows-content {
+  display: flex;
   flex-direction: row;
   gap: 50px;
-  padding-top: 150px;
 }
 
 .shows-section {
