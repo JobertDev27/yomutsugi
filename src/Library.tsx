@@ -33,7 +33,7 @@ export default function Library() {
       <Header />
       <main className="library">
         <section className="library-shows">
-          {animeList?.map((data) => {
+          {/* {animeList?.map((data) => {
             return (
               // <ShowCard
               //   {...data}
@@ -44,7 +44,7 @@ export default function Library() {
               // />
               <p>Under Construction</p>
             );
-          })}
+          })} */}
         </section>
       </main>
     </>

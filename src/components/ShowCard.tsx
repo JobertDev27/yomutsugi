@@ -1,17 +1,6 @@
 import "./styles/showCard.css";
 import { useNavigate } from "react-router";
-
-interface CardProp {
-  name: string;
-  id: number;
-  rating: number;
-  ranking: number;
-  image: string;
-  genre: string[];
-  user_item: boolean;
-  index?: number;
-  episodes: number;
-}
+import { type CardProp } from "../utils/types";
 
 export default function ContentCard(cardProp: CardProp) {
   const navigate = useNavigate();

@@ -31,6 +31,7 @@ export default function Shows() {
       ranking: d?.rank,
       image: d?.images?.webp?.image_url,
       episodes: d?.episodes,
+      synopsis: d?.synopsis,
     }));
     return bannerData;
   };
@@ -113,19 +114,8 @@ export default function Shows() {
             </form>
           </aside>
           <div className="shows-section">
-            {shows?.map((c, k) => {
-              return (
-                <ShowCard
-                  name={c.name}
-                  id={c.id}
-                  ranking={c.ranking}
-                  rating={c.rating}
-                  image={c.image}
-                  user_item={false}
-                  episodes={c.episodes}
-                  key={k}
-                />
-              );
+            {shows?.map((show, k) => {
+              return <ShowCard {...show} key={k} />;
             })}
           </div>
         </section>
