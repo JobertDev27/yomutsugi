@@ -6,15 +6,63 @@
   position: relative;
 }
 
-.banner-carousel div {
+.banner-carousel > div {
   height: 100%;
   width: 50%;
   display: flex;
   gap: 20px;
 }
 
+.carousel-prev-btn,
+.carousel-next-btn {
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+}
+
+.carousel-prev-btn {
+  left: 20px;
+  background: linear-gradient(to right, var(--bg) 60%, transparent);
+}
+
+.carousel-next-btn {
+  right: 20px;
+  background: linear-gradient(to right, transparent 40%, var(--bg));
+}
+
+.carousel-prev-btn:hover img {
+  transform: translateX(-5px);
+  transition: transform ease-in 200ms;
+}
+
+.carousel-next-btn:hover img {
+  transform: translateX(5px);
+  transition: transform ease-in 200ms;
+}
+
+.carousel-prev-btn img,
+.carousel-next-btn img {
+  transition: transform ease-out 200ms;
+}
+
 .banner-carousel div img {
   height: 100%;
+  aspect-ratio: 4/5.6;
+}
+.carousel-desc {
+  width: 100%;
+  padding: 10px;
+  padding-left: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.carousel-desc p {
+  display: -webkit-box;
+  line-clamp: 5;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
 }
 
 .carousel-data {
