@@ -12,7 +12,17 @@ function BannerData(data: CardProp) {
       <img src={data?.image} alt="" />
       <div className="carousel-data">
         <p className="carousel-title">{data?.name}</p>
-        <p>#{data?.ranking}</p>
+        <div className="carousel-score">
+          <div>
+            <img src="/leaderboard.png" alt="" />
+            <p>{data?.ranking}</p>
+          </div>
+          <div>
+            <img src="/star.png" alt="" />
+            <p>{data?.rating}</p>
+          </div>
+        </div>
+        {data?.episodes && <p>{data?.episodes} Episodes</p>}
         <div className="carousel-desc">
           <p>{data?.synopsis}</p>
         </div>
