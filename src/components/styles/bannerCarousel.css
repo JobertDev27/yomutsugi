@@ -45,13 +45,24 @@
   transition: transform ease-out 200ms;
 }
 
+.carousel-title {
+  font-size: 24px;
+  display: -webkit-box;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--accent);
+  font-weight: 600;
+}
+
 .banner-carousel div img {
   height: 100%;
   aspect-ratio: 4/5.6;
 }
 .carousel-desc {
   width: 100%;
-  padding: 10px;
+  padding: 10px 20px;
   padding-left: 0;
   box-sizing: border-box;
   overflow: hidden;

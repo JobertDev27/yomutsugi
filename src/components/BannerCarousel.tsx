@@ -11,7 +11,7 @@ function BannerData(data: CardProp) {
     <>
       <img src={data?.image} alt="" />
       <div className="carousel-data">
-        <p className="">{data?.name}</p>
+        <p className="carousel-title">{data?.name}</p>
         <p>#{data?.ranking}</p>
         <div className="carousel-desc">
           <p>{data?.synopsis}</p>
