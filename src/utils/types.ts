@@ -4,7 +4,6 @@ export type CardProp = {
   rating: number;
   ranking: number;
   image: string;
-  data: any;
   episodes: number;
   synopsis: string;
 };
