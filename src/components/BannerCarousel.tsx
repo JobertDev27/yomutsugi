@@ -34,28 +34,31 @@ function BannerData(data: CardProp) {
 export default function BannerCarousel({ data }: CarouselProp) {
   const [currBanner, setCurrBanner] = useState<number>(0);
 
-  const moveBanner = (dir: string) => {
-    const step = dir === "right" ? 1 : -1;
-    setCurrBanner((prev) => (prev + step + data.length) % data.length);
+  const loopArray = (step: number) => {
+    return (currBanner + step + data.length) % data.length;
+  };
+
+  const moveBanner = (step: number) => {
+    setCurrBanner(loopArray(step));
   };
 
   return (
     <div className="banner-carousel">
-      <button className="carousel-prev-btn" onClick={() => moveBanner("left")}>
+      <button className="carousel-prev-btn" onClick={() => moveBanner(-1)}>
         <img src="/previous.png" alt="<" />
       </button>
-      <button className="carousel-next-btn" onClick={() => moveBanner("right")}>
+      <button className="carousel-next-btn" onClick={() => moveBanner(1)}>
         <img src="/next.png" alt="<" />
       </button>
       <div className="left-carousel-cont">
-        <BannerData {...data[currBanner]} />
+        <BannerData {...data[loopArray(-1)]} />
       </div>
 
       <div className="main-carousel-cont">
         <BannerData {...data[currBanner]} />
       </div>
       <div className="right-carousel-cont">
-        <BannerData {...data[currBanner]} />
+        <BannerData {...data[loopArray(+1)]} />
       </div>
     </div>
   );
