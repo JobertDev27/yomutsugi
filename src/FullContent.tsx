@@ -69,12 +69,37 @@ export default function FullContent() {
       if (error) {
         console.log(error);
       } else {
-        console.log("passed: " + JSON.stringify(data));
-        setIsListed(true);
+        if (data.length > 0) {
+          console.log("passed: " + JSON.stringify(data));
+          setIsListed(true);
+        }
       }
     };
     checkInLibrary();
   }, [userId, apiData]);
+
+  const addToLibrary = async () => {
+    const { data, error } = await supabase
+      .from("user_library")
+      .insert({
+        user_id: userId,
+        mal_id: apiData?.mal_id,
+        title: apiData?.title,
+        thumbnail: apiData?.img,
+        rating: apiData?.score,
+        rank: apiData?.rank,
+        episodes: apiData?.episodes,
+        curr_episode: 0,
+      })
+      .select();
+
+    if (error) {
+      console.log(`Unexpected error has occured: ${error.message}`);
+    } else {
+      console.log(`Successfully added: ${data}`);
+    }
+    alert("successfully added");
+  };
 
   return (
     <>
@@ -86,7 +111,7 @@ export default function FullContent() {
             {isListed ? (
               <button>REMOVE FROM LIBRARY</button>
             ) : (
-              <button>ADD TO LIBRARY</button>
+              <button onClick={addToLibrary}>ADD TO LIBRARY</button>
             )}
           </section>
           <section className="content-section-metadata">
