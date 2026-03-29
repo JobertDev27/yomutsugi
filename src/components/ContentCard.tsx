@@ -1,4 +1,4 @@
-import "./styles/showCard.css";
+import "./styles/contentCard.css";
 import { useNavigate } from "react-router";
 import { type CardProp } from "../utils/types";
 

@@ -3,10 +3,6 @@
   cursor: pointer;
 }
 
-.lib-card-cont img {
-  height: 200;
-}
-
 .lib-card-info {
   position: absolute;
   bottom: 0;

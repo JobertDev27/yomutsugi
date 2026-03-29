@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 import { getAnime, getAnimeBanner, getAnimeByQuery } from "./utils/api";
-import ShowCard from "./components/ShowCard";
+import ContentCard from "./components/ContentCard";
 import Header from "./components/Header";
 import "./styles/shows.css";
 import BannerCarousel from "./components/BannerCarousel";
@@ -24,7 +24,7 @@ export default function Shows() {
   // const [endDate, setEndDate] = useState<string>("");
 
   const parseData = (res: any) => {
-    const bannerData: CardProp[] = res.data.map((d: any) => ({
+    const bannerData: CardProp[] = res?.data.map((d: any) => ({
       name: d?.title_english ?? d?.title,
       id: d?.mal_id,
       rating: d?.score,
@@ -114,8 +114,8 @@ export default function Shows() {
             </form>
           </aside>
           <div className="shows-section">
-            {shows?.map((show, k) => {
-              return <ShowCard {...show} key={k} />;
+            {shows?.map((show) => {
+              return <ContentCard {...show} key={show.id} />;
             })}
           </div>
         </section>

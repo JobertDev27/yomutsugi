@@ -26,6 +26,7 @@ interface contentProp {
   img: string;
   season: string;
   year: string;
+  thumbnail: string;
 }
 
 export default function FullContent() {
@@ -43,6 +44,7 @@ export default function FullContent() {
       setApiData({
         ...res.data,
         img: res.data.images.webp.large_image_url,
+        thumbnail: res.data.images.webp.image_url,
         schedule: res.data.broadcast.string,
         aired: res.data.aired.string,
         genre: [
@@ -85,7 +87,7 @@ export default function FullContent() {
         user_id: userId,
         mal_id: apiData?.mal_id,
         title: apiData?.title,
-        thumbnail: apiData?.img,
+        thumbnail: apiData?.thumbnail,
         rating: apiData?.score,
         rank: apiData?.rank,
         episodes: apiData?.episodes,
