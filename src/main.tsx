@@ -12,15 +12,11 @@ import SessionProvider from "./utils/SessionProvider.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: AuthLogin,
+    Component: Shows,
   },
   {
     path: "/library",
     Component: Library,
-  },
-  {
-    path: "/shows",
-    Component: Shows,
   },
   {
     path: "/Login",
