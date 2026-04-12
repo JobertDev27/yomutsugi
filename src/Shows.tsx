@@ -61,7 +61,7 @@ export default function Shows() {
       <main className="shows-main">
         <div>
           <h2>TOP SHOWS CURRENTLY AIRING</h2>
-          <BannerCarousel data={bannerShows} />
+          {bannerShows?.length > 0 && <BannerCarousel data={bannerShows} />}
         </div>
         <section className="shows-content">
           <aside>
