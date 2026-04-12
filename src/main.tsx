@@ -2,7 +2,6 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router";
 import "./styles/global.css";
-import ProtectedRoute from "./utils/ProtectedRoute.tsx";
 import Library from "./Library.tsx";
 import AuthLogin from "./AuthLogin.tsx";
 import AuthSignup from "./AuthSignup.tsx";
@@ -17,23 +16,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/library",
-    Component: () => {
-      return (
-        <ProtectedRoute>
-          <Library />
-        </ProtectedRoute>
-      );
-    },
+    Component: Library,
   },
   {
     path: "/shows",
-    Component: () => {
-      return (
-        <ProtectedRoute>
-          <Shows />
-        </ProtectedRoute>
-      );
-    },
+    Component: Shows,
   },
   {
     path: "/Login",
