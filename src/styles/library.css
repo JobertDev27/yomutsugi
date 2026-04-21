@@ -11,3 +11,14 @@
   grid-template-columns: repeat(6, 1fr);
   gap: 20px;
 }
+
+.warning-cont {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header-warning {
+  color: var(--text);
+}

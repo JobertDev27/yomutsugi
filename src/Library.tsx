@@ -32,6 +32,13 @@ export default function Library() {
     <>
       <Header />
       <main className="library">
+        {!userId && (
+          <div className="warning-cont">
+            <h1 className="header-warning">
+              MUST HAVE AN ACCOUNT TO SEE LIBRARY
+            </h1>
+          </div>
+        )}
         <section className="shows-section">
           {animeList?.map((data) => {
             return (
