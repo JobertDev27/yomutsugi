@@ -1,3 +1,9 @@
+import PageHeader from "@/components/PageHeader";
+
 export default function Home() {
-  return <h1>Hello World disregard</h1>;
+  return (
+    <>
+      <PageHeader />
+    </>
+  );
 }
