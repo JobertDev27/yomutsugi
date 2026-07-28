@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { getAllAnime } from "@/api/anime";
-import { Show } from "@/type/types";
+import ShowCard from "@/components/ShowCard";
+import { Anime } from "@/type/types";
 
 export default function Shows() {
-  const [shows, setShows] = useState<Show[]>();
+  const [shows, setShows] = useState<Anime[]>([]);
   useEffect(() => {
     const fetchShows = async () => {
       try {
@@ -21,7 +22,7 @@ export default function Shows() {
   return (
     <div>
       {shows?.map((show, i) => (
-        <p key={i}>{show.title}</p>
+        <ShowCard {...show} key={i} />
       ))}
     </div>
   );
