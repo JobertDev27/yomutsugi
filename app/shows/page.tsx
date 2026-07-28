@@ -3,15 +3,15 @@
 import { useEffect, useState } from "react";
 import { getAllAnime } from "@/api/anime";
 import ShowCard from "@/components/ShowCard";
-import { Anime } from "@/type/types";
+import { Show } from "@/type/types";
 
 export default function Shows() {
-  const [shows, setShows] = useState<Anime[]>([]);
+  const [shows, setShows] = useState<Show[]>([]);
   useEffect(() => {
     const fetchShows = async () => {
       try {
         const tempShows = await getAllAnime();
-        setShows(tempShows?.data);
+        setShows(tempShows);
         console.log("successful:", tempShows);
       } catch (err) {
         console.error(err);
