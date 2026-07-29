@@ -20,10 +20,12 @@ export default function Shows() {
     fetchShows();
   }, []);
   return (
-    <div>
-      {shows?.map((show, i) => (
-        <ShowCard {...show} key={i} />
-      ))}
-    </div>
+    <main>
+      <section className="grid grid-cols-8 gap-4 p-4">
+        {shows?.map((show, i) => (
+          <ShowCard {...show} key={i} />
+        ))}
+      </section>
+    </main>
   );
 }

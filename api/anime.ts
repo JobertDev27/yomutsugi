@@ -5,7 +5,7 @@ const url: string = "https://api.tenrai.org/v1/";
 function _apiMapper(data: Anime): Show {
   return {
     title: data.title,
-    thumbnail: data.images.webp.small_image_url,
+    thumbnail: data.images.webp.image_url,
     cover: data.images.webp.large_image_url,
     episodes: data.episodes
   };
