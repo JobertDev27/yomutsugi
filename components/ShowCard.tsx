@@ -5,7 +5,7 @@ export default function ShowCard(show: Show) {
   return (
     <div>
       <Image
-        className="max-h-'720px'"
+        className="max-h-'720px' lg:h-60"
         src={show.thumbnail}
         width={405}
         height={720}
