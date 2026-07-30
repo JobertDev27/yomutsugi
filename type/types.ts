@@ -20,6 +20,8 @@ export type Anime = {
 };
 
 export type SearchPage = {
-  id: number;
-  title: string;
+  params: Promise<{
+    id: number;
+    title: string;
+  }>;
 };
