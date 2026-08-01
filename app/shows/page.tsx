@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getAllAnime } from "@/api/anime";
 import ShowCard from "@/components/ShowCard";
 import { Show } from "@/type/types";
+import PageHeader from "@/components/PageHeader";
 
 export default function Shows() {
   const [shows, setShows] = useState<Show[]>([]);
@@ -20,12 +21,15 @@ export default function Shows() {
     fetchShows();
   }, []);
   return (
-    <main>
-      <section className="grid grid-cols-8 gap-4 p-4">
-        {shows?.map((show, i) => (
-          <ShowCard {...show} key={i} />
-        ))}
-      </section>
-    </main>
+    <>
+      <PageHeader />
+      <main>
+        <section className="grid lg:grid-cols-8 md:grid-cols-6 grid-cols-4 gap-4 p-4">
+          {shows?.map((show, i) => (
+            <ShowCard {...show} key={i} />
+          ))}
+        </section>
+      </main>
+    </>
   );
 }
