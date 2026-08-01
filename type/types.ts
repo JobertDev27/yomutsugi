@@ -18,10 +18,3 @@ export type Anime = {
     };
   };
 };
-
-export type SearchPage = {
-  params: Promise<{
-    id: number;
-    title: string;
-  }>;
-};
