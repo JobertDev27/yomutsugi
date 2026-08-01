@@ -19,13 +19,14 @@ async function getAllAnime() {
 
 async function searchBy(title?: string) {
   const res = await fetch(`${url}anime?q=${title}`);
-  const data = await res.json();
-  return _apiMapper(data);
+  const json = await res.json();
+  return _apiMapper(json.data);
 }
 
 async function getAnimeById(id: number) {
   const res = await fetch(`${url}anime/${id}`);
-  return (await res.json()) || "Error: Failed to fetch data";
+  const json = await res.json();
+  return _apiMapper(json.data);
 }
 
 export { getAllAnime, searchBy, getAnimeById };
