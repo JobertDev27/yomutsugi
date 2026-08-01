@@ -13,7 +13,6 @@ export default function Page({ params }: { params: Promise<{ id: number }> }) {
     const fetchData = async () => {
       const data = await getAnimeById(id);
       setAnime(data);
-      console.log(data);
     };
     fetchData();
   }, [id]);
@@ -21,7 +20,15 @@ export default function Page({ params }: { params: Promise<{ id: number }> }) {
   return (
     <main>
       <h1>{anime?.title}</h1>
+      {anime && (
+        <Image
+          className="w-[450]"
+          width={720}
+          height={1080}
+          src={anime?.cover}
+          alt=""
+        />
+      )}
     </main>
   );
 }
-//<Image width={720} height={1080} src={anime?.cover} alt="" />
