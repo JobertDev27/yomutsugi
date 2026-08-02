@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function PageHeader() {
   const router = useRouter();
@@ -13,8 +14,9 @@ export default function PageHeader() {
         <input type="search" name="q" placeholder="search..." />
         <button type="submit">search</button>
       </form>
-      <nav>
+      <nav className="flex gap-4">
         <p>Login</p>
+        <Link href="/shows">Shows</Link>
       </nav>
     </header>
   );
