@@ -14,10 +14,15 @@ export default function PageHeader() {
         <input type="search" name="q" placeholder="search..." />
         <button type="submit">search</button>
       </form>
-      <nav className="flex gap-4">
-        <p>Login</p>
-        <Link href="/shows">Shows</Link>
-      </nav>
+      <div className="flex justify-between lg:gap-20">
+        <nav className="flex gap-4">
+          <Link href="/shows">Shows</Link>
+          <Link href="/">Library</Link>
+        </nav>
+        <div>
+          <p>Login</p>
+        </div>
+      </div>
     </header>
   );
 }
