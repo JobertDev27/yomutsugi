@@ -33,7 +33,7 @@ export default function Shows() {
     <>
       <PageHeader />
       <main>
-        <section className="grid lg:grid-cols-8 md:grid-cols-6 grid-cols-4 gap-4 p-4">
+        <section className="grid lg:grid-cols-8 md:grid-cols-6 grid-cols-2 gap-4 p-4">
           {shows?.map((show, i) => (
             <ShowCard {...show} key={i} />
           ))}
