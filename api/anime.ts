@@ -17,10 +17,10 @@ async function getAllAnime() {
   return json.data.map(_apiMapper);
 }
 
-async function searchBy(title?: string) {
+async function getAnimeByName(title?: string) {
   const res = await fetch(`${url}anime?q=${title}`);
   const json = await res.json();
-  return _apiMapper(json.data);
+  return json.data.map(_apiMapper);
 }
 
 async function getAnimeById(id: number) {
@@ -29,4 +29,4 @@ async function getAnimeById(id: number) {
   return _apiMapper(json.data);
 }
 
-export { getAllAnime, searchBy, getAnimeById };
+export { getAllAnime, getAnimeByName, getAnimeById };
