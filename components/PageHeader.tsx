@@ -1,10 +1,8 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function PageHeader() {
-  const router = useRouter();
   return (
     <header className="w-full flex justify-between p-5 box-border">
       <div>
