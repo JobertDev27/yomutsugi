@@ -18,7 +18,7 @@ export default function PageHeader() {
           <Link href="/">Library</Link>
         </nav>
         <div>
-          <p>Login</p>
+          <Link href="/auth">Login</Link>
         </div>
       </div>
     </header>
