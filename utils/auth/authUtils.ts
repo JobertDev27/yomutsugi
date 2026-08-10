@@ -10,7 +10,7 @@ export async function signUp(email: string, pass: string) {
     email: email,
     password: pass,
     options: {
-      //emailRedirectTo: "https://example.com/welcome"
+      emailRedirectTo: "http://localhost:3000/auth/confirm"
     }
   });
 }
