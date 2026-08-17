@@ -1,10 +1,10 @@
-export type Show = {
+export type ShowProps = {
     title: string;
     cover: string;
     thumbnail: string;
 }
 
-export type TenraiApi = {
+export type TenraiApiProps = {
   mal_id: number;
   title: string;
   episodes: number;

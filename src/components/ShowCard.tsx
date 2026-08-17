@@ -1,6 +1,6 @@
-import type { Show } from "../types/type";
+import type { ShowProps } from "../types/type";
 
-export default function ShowCard(show: Show): React.ReactNode {
+export default function ShowCard(show: ShowProps): React.ReactNode {
     return <div>
 	<img src={show.cover} alt={`${show.title} cover`} />
 	<div>
