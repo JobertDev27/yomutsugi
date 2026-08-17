@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Header from "../components/Header";
 import { useEffect, useState } from "react";
-import type { ShowProps } from "../types/type";
+import type { Show } from "../types/type";
 import { getAllAnime } from "../api/tenrai";
 import ShowCard from "../components/ShowCard";
 
@@ -10,7 +10,7 @@ export const Route = createFileRoute('/animes')({
 })
 
 function Animes():React.ReactNode {
-    const [shows, setShows] = useState<ShowProps[]>([])
+    const [shows, setShows] = useState<Show[]>([])
     
     useEffect(() => {
 	const fetchShows = async () => {
