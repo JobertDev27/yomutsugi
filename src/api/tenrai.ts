@@ -1,8 +1,8 @@
-import type { Show, TenraiApi } from "../types/type";
+import type { Show, Tenrai } from "../types/type";
 
 const url: string = "https://api.tenrai.org/v1/";
 
-function _apiMapper(data: TenraiApi): Show {
+function _apiMapper(data: Tenrai): Show {
   return {
     title: data.title,
     thumbnail: data.images.webp.small_image_url,
@@ -10,7 +10,7 @@ function _apiMapper(data: TenraiApi): Show {
   };
 }
 
-export async function getAllAnime(): Promise<Show> {
+export async function getAllAnime(): Promise<Show[]> {
   const res = await fetch(`${url}anime`);
   const json = await res.json();
   return json.data.map(_apiMapper);
