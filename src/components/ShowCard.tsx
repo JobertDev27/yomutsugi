@@ -6,7 +6,7 @@ type ShowProps = {
 
 export default function ShowCard({show}: ShowProps): React.ReactNode {
     return <div>
-	<img src={show.cover} alt={`${show.title} cover`} />
+	<img className="max-h-[250px] w-full  min-h-25" src={show.cover} alt={`${show.title} cover`} />
 	<div>
 	   <p>{show.title}</p> 
 	</div>
