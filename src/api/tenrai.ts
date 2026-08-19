@@ -4,6 +4,7 @@ const url: string = "https://api.tenrai.org/v1/";
 
 function _apiMapper(data: Tenrai): Show {
   return {
+    id: data.mal_id,
     title: data.title,
     thumbnail: data.images.webp.small_image_url,
     cover: data.images.webp.large_image_url,
@@ -16,8 +17,15 @@ export async function getAllAnime(): Promise<Show[]> {
   return json.data.map(_apiMapper);
 }
 
-export async function searchBy(title?: string): Promise<Show> {
+export async function getAnimeByTitle(title?: string): Promise<Show> {
   const res = await fetch(`${url}anime?q=${title}`);
-  const data = await res.json();
-  return _apiMapper(data);
+  const json = await res.json();
+  return _apiMapper(json.data);
+}
+
+
+export async function getAnimeById(id: string): Promise<Show> {
+  const res = await fetch(`${url}anime/${id}`);
+  const json = await res.json();
+  return _apiMapper(json.data);
 }
