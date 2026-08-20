@@ -3,6 +3,7 @@ export type Show = {
     title: string;
     cover: string;
     thumbnail: string;
+    ep: number;
 }
 
 export type Tenrai = {
