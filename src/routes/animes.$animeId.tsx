@@ -13,6 +13,10 @@ export const Route = createFileRoute('/animes/$animeId')({
 function RouteComponent() {
     const anime: Show = Route.useLoaderData()
     console.log(anime)
-    return <div>{anime.title}</div>
+    return <div>
+	<img src={anime.cover} />
+	<p>{anime.title}</p>
+	<p>{anime.ep}</p>
+    </div>
 
 }
