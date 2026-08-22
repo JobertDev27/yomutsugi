@@ -1,4 +1,5 @@
-
+import { Link } from "@tanstack/react-router";
+// TODO make link to work with both login and logout
 export default function Header() {
     return <header className="flex flex-row w-full justify-between p-5" >
 
@@ -8,7 +9,7 @@ export default function Header() {
 	</form> 
     <div>
 	<nav>
-	    <a href="/">Login</a>
+	<Link to="/auth">Login</Link>
         </nav>
     </div>
     </header>
