@@ -10,19 +10,10 @@ export const Route = createFileRoute('/')({
 
 function Index():React.ReactNode {
     const [claims, setClaims] = useState<JwtPayload | null>(null)
-    //const [shows, setShows] = useState<Show[]>([])
 
     useEffect(() => {
 	const params = new URLSearchParams(window.location.search);
-	const token_hash = params.get("token_hash");
-	const type = params.get("type");
 
-	if (token_hash) {
-	    supabase.auth.verifyOtp({
-		token_hash,
-		type: type || "email",
-	    });
-	}
 
 	supabase.auth.getClaims().then(({ data }) => {
 	    setClaims(data?.claims ?? null)
@@ -42,13 +33,15 @@ function Index():React.ReactNode {
     // If user is logged in, show welcome screen
     if (claims) {
 	return (
+	    <>
+	    <Header />
 	    <div>
 	    <h1>Welcome!</h1>
 	    <p>You are logged in as: {claims.email}</p>
 	    </div>
+	    </>
 	)
     }
-    // Show login form
     return (
 	<>
 	<Header />
