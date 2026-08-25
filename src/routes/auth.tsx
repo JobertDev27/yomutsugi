@@ -34,9 +34,22 @@ function RouteComponent() {
 	}
     }
 
-    return <form onSubmit={(e)=> handleSignIn(e, email, pass)}>
-    <input placeholder='name' value={email} onChange={(e) => setEmail(e.target.value)} />
-    <input placeholder='password' value={pass} onChange={(e) => setPass(e.target.value)} />
-    <button type='submit'>submit</button>
-    </form> 
+    return ( 
+	    <>
+	    <main className='flex items-center justify-center h-dvh'>
+	    <form className='flex flex-col gap-5 items-center justify-center p-10 bg-mist-900 rounded-md' onSubmit={(e)=> handleSignIn(e, email, pass)}>
+	    <div className='flex flex-col w-full gap-2'>
+	    <label>Username</label>
+	    <input placeholder='name' value={email} onChange={(e) => setEmail(e.target.value)} />
+	    </div>
+	    <div className='flex flex-col w-full gap-2'>
+	    <label>Password</label>
+	    <input placeholder='password' value={pass} onChange={(e) => setPass(e.target.value)} />
+	    </div>
+	    <button type='submit'>submit</button>
+	    </form> 
+	    </main>
+	    </>
+	   )
+
 }
