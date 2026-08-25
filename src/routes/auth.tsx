@@ -29,6 +29,9 @@ function RouteComponent() {
 	if (data.user) {
 	    navigate({to: "/"})
 	}
+	if (error) {
+	    console.log(error)
+	}
     }
 
     return <form onSubmit={(e)=> handleSignIn(e, email, pass)}>
