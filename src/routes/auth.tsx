@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router'
+import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
 import { supabase } from '../utils/supabase'
 import { useState } from 'react'
 
@@ -37,7 +37,7 @@ function RouteComponent() {
     return ( 
 	    <>
 	    <main className='flex items-center justify-center h-dvh'>
-	    <form className='flex flex-col gap-5 items-center justify-center p-10 bg-mist-900 rounded-md' onSubmit={(e)=> handleSignIn(e, email, pass)}>
+	    <form className='flex flex-col gap-5 items-center justify-center p-10 bg-mist-900 rounded-md lg:w-150 lg:h-150' onSubmit={(e)=> handleSignIn(e, email, pass)}>
 	    <div className='flex flex-col w-full gap-2'>
 	    <label>Username</label>
 	    <input placeholder='name' value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -46,7 +46,11 @@ function RouteComponent() {
 	    <label>Password</label>
 	    <input placeholder='password' value={pass} onChange={(e) => setPass(e.target.value)} />
 	    </div>
-	    <button type='submit'>submit</button>
+	    <div className='w-full py-5 flex flex-col gap-2'>
+		<Link to='/auth'>Forgot Password?</Link>
+		<Link to='/auth'>No Account? Sign Up</Link>
+	    </div>
+	    <button type='submit'>Login</button>
 	    </form> 
 	    </main>
 	    </>

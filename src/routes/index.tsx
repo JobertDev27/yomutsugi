@@ -12,9 +12,6 @@ function Index():React.ReactNode {
     const [claims, setClaims] = useState<JwtPayload | null>(null)
 
     useEffect(() => {
-	const params = new URLSearchParams(window.location.search);
-
-
 	supabase.auth.getClaims().then(({ data }) => {
 	    setClaims(data?.claims ?? null)
 	});
