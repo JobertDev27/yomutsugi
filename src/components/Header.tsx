@@ -28,7 +28,7 @@ export default function Header() {
   const handleLogout = async () => {
     await supabase.auth.signOut()
     setClaims(null)
-    navigate("/")
+    navigate({to: "/"})
   }
 
     return <header className="flex flex-row w-full justify-between p-5" >
