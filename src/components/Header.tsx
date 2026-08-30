@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import type { JwtPayload } from "@supabase/supabase-js";
 import { supabase } from "../utils/supabase"
 
-// TODO make link to work with both login and logout
 export default function Header() {
     const [claims, setClaims] = useState<JwtPayload | null>(null)
 
@@ -37,10 +36,10 @@ export default function Header() {
     <form>
     <input type="search" placeholder="search"/>	
     </form> 
-    <div>
-    <nav>
-    {claims ? <button onClick={handleLogout}>Logout</button> : <Link to="/auth">Login</Link> }
+    <nav className="flex flex-row gap-5">
+	<Link to='/'>Library</Link>
+	<Link to='/animes'>Browse</Link>
+	{claims ? <button onClick={handleLogout}>Logout</button> : <Link to="/auth">Login</Link> }
     </nav>
-    </div>
     </header>
 }
