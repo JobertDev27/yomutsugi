@@ -1,31 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { supabase } from "../utils/supabase";
 import type { JwtPayload } from "@supabase/supabase-js";
 import Header from "../components/Header";
+import { useAuth } from "../hooks/useAuth";
 
 export const Route = createFileRoute('/')({
     component: Index,
 })
 
 function Index():React.ReactNode {
-    const [claims, setClaims] = useState<JwtPayload | null>(null)
-
-    useEffect(() => {
-	supabase.auth.getClaims().then(({ data }) => {
-	    setClaims(data?.claims ?? null)
-	});
-
-	const {
-	    data: { subscription },
-	} = supabase.auth.onAuthStateChange(() => {
-	    supabase.auth.getClaims().then(({ data }) => {
-		setClaims(data?.claims ?? null);
-	    });
-	});
-
-	return () => subscription.unsubscribe();
-    }, []);
+    const claims : JwtPayload | null = useAuth()
 
     // If user is logged in, show welcome screen
     if (claims) {
