@@ -62,7 +62,7 @@ function RouteComponent() {
 		{hasAccount && <Link to='/auth'>Forgot Password?</Link>}
 		<button type='button' className='cursor-pointer' onClick={() => setHasAccount(prev => !prev)}>{hasAccount ? "No Account? Sign-up" : "Already have an account? Login"}</button>
 	    </div>
-	    <button className='bg-accent text-bg! font-bold py-3 rounded-full w-full cursor-pointer' type='submit'>Login</button>
+	    <button className='bg-accent text-bg! font-bold py-3 rounded-full w-full cursor-pointer' type='submit'>{hasAccount ? "Login" : "Sign-Up"}</button>
 	    </form> 
 	    </main>
 	    </>
