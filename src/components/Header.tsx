@@ -1,34 +1,22 @@
 import { Link, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
 import type { JwtPayload } from "@supabase/supabase-js";
 import { supabase } from "../utils/supabase"
+import { useAuth } from "../hooks/useAuth";
 
 export default function Header() {
-    const [claims, setClaims] = useState<JwtPayload | null>(null)
-
+    const claims : JwtPayload | null = useAuth()
     const navigate = useNavigate()
 
-    useEffect(() => {
-	supabase.auth.getClaims().then(({ data }) => {
-	    setClaims(data?.claims ?? null)
-	});
+    const handleLogout = async () => {
+	const { error } = await supabase.auth.signOut()
 
-	const {
-	    data: { subscription },
-	} = supabase.auth.onAuthStateChange(() => {
-	    supabase.auth.getClaims().then(({ data }) => {
-		setClaims(data?.claims ?? null);
-	    });
-	});
+	if (error) {
+	    console.error(error)
+	    return
+	}
 
-	return () => subscription.unsubscribe();
-    }, []);
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut()
-    setClaims(null)
-    navigate({to: "/"})
-  }
+	navigate({ to: "/" })
+    }
 
     return <header className="flex flex-row w-full justify-between p-5" >
 
@@ -37,9 +25,9 @@ export default function Header() {
     <input type="search" placeholder="search"/>	
     </form> 
     <nav className="flex flex-row gap-5">
-	<Link to='/'>Library</Link>
-	<Link to='/animes'>Browse</Link>
-	{claims ? <button onClick={handleLogout}>Logout</button> : <Link to="/auth">Login</Link> }
+    <Link to='/'>Library</Link>
+    <Link to='/animes'>Browse</Link>
+    {claims ? <button onClick={handleLogout}>Logout</button> : <Link to="/auth">Login</Link> }
     </nav>
     </header>
 }
