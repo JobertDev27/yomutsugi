@@ -60,7 +60,7 @@ function RouteComponent() {
 	    </div>
 	    <div className='w-full py-5 flex flex-row justify-between items-center'>
 		{hasAccount && <Link to='/auth'>Forgot Password?</Link>}
-		<button className='cursor-pointer' onClick={() => setHasAccount(prev => !prev)}>{hasAccount ? "No Account? Sign-up" : "Already have an account? Login"}</button>
+		<button type='button' className='cursor-pointer' onClick={() => setHasAccount(prev => !prev)}>{hasAccount ? "No Account? Sign-up" : "Already have an account? Login"}</button>
 	    </div>
 	    <button className='bg-accent text-bg! font-bold py-3 rounded-full w-full cursor-pointer' type='submit'>Login</button>
 	    </form> 
