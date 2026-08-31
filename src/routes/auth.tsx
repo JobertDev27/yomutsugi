@@ -8,27 +8,27 @@ export const Route = createFileRoute('/auth')({
 
 
 function RouteComponent() {
-    const [email, setEmail] = useState<string>("")
-    const [pass, setPass] = useState<string>("")
-    const [confirmPass, setConfirmPass] = useState<string>("")
-
     const [hasAccount, setHasAccount] = useState<boolean>(true)
 
     const navigate = useNavigate()
 
-    async function handleSignUp(e: React.FormEvent<HTMLFormElement>, email: string, password: string) {
+    async function handleSignUp(e: React.FormEvent<HTMLFormElement>) {
 	e.preventDefault()
+	const form = new FormData(e.currentTarget)
+
 	const { data, error } = await supabase.auth.signUp({
-	    email: email,
-	    password: password,
+	    email: form.get("email") as string,
+	    password: form.get("password") as string,
 	})
     }
 
-    async function handleSignIn(e: React.FormEvent<HTMLFormElement>, email: string, password: string) {
+    async function handleSignIn(e: React.FormEvent<HTMLFormElement>) {
 	e.preventDefault()
+	const form = new FormData(e.currentTarget)
+	
 	const { data, error } = await supabase.auth.signInWithPassword({
-	    email: email,
-	    password: password,
+	    email: form.get("email") as string,
+	    password: form.get("password") as string,
 	})
 	if (data.user) {
 	    navigate({to: "/"})
@@ -42,19 +42,19 @@ function RouteComponent() {
 	    <>
 	    <main className='flex items-center justify-center h-dvh'>
 	    <form className='flex flex-col gap-5 items-center justify-center md:p-10 p-4 bg-surface border border-border rounded-md md:w-150 h-150 w-full'
-	    onSubmit={(e)=> hasAccount ? handleSignIn(e, email, pass) : handleSignUp(e, email, pass)}>
+	    onSubmit={(e)=> hasAccount ? handleSignIn(e) : handleSignUp(e)}>
 	    <h1 className='text-2xl font-bold'>{hasAccount ? "LOGIN" : "SIGN-UP"}</h1>
 	    <div className='flex flex-col w-full gap-2'>
 	    <label>Email Address</label>
-	    <input className='bg-bg p-2' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+	    <input className='bg-bg p-2' placeholder='Email' name="email" />
 	    </div>
 	    <div className='flex flex-col w-full gap-2'>
 	    <label>Password</label>
-	    <input className='bg-bg p-2' placeholder='Password' value={pass} onChange={(e) => setPass(e.target.value)} />
+	    <input className='bg-bg p-2' placeholder='Password' name="password" />
 	    {!hasAccount && (
 	    <>
 	    <label>Confirm Password</label>
-	    <input className='bg-bg p-2' placeholder='Retype Password' value={confirmPass} onChange={(e) => setConfirmPass(e.target.value)} />
+	    <input className='bg-bg p-2' placeholder='Retype Password' name="confirmPassword" />
 	    </>
 	    )}
 	    </div>
