@@ -9,6 +9,7 @@ function _apiMapper(data: Tenrai): Show {
     thumbnail: data.images.webp.small_image_url,
     cover: data.images.webp.large_image_url,
     ep: data.episodes,
+    desc: data.synopsis,
   };
 }
 
