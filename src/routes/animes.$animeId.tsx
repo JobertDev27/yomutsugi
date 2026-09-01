@@ -17,6 +17,7 @@ function RouteComponent() {
 	<img src={anime.cover} />
 	<p>{anime.title}</p>
 	<p>{anime.ep}</p>
+	<p>{anime.desc}aa</p>
     </div>
 
 }
