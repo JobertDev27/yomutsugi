@@ -4,6 +4,16 @@ export type Show = {
     cover: string;
     thumbnail: string;
     ep: number;
+    status: string;
+    aired: string;
+    duration: string;
+    rating: string;
+    score: number;
+    rank: number;
+    season: string;
+    year: number;
+    //genres: string[];
+    //themes: string[];
     desc: string;
 }
 
@@ -11,6 +21,16 @@ export type Tenrai = {
     mal_id: number;
     title: string;
     episodes: number;
+    status: string;
+    aired: string;
+    duration: string;
+    rating: string;
+    score: number;
+    rank: number;
+    season: string;
+    year: number;
+    genres: string[];
+    themes: string[];
     synopsis: string;
     images: {
 	webp: {
