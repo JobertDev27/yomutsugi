@@ -17,7 +17,14 @@ function RouteComponent() {
 	<img src={anime.cover} />
 	<p>{anime.title}</p>
 	<p>{anime.ep}</p>
-	<p>{anime.desc}aa</p>
+	<p>{anime.desc}</p>
+	<p>{anime.status}</p>
+	<p>{anime.aired}</p>
+	<p>{anime.rank}</p>
+	<p>{anime.rating}</p>
+	<p>{anime.duration}</p>
+	<p>{anime.year}</p>
+	<p>{anime.score}</p>
     </div>
 
 }
