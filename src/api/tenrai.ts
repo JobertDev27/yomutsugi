@@ -20,6 +20,7 @@ function _apiMapper(data: Tenrai): Show {
 	//genres: data.genres[],
 	//themes: data.themes[],
 	desc: data.synopsis,
+	scored_by: data.scored_by,
     };
 }
 

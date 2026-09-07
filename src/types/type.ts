@@ -15,6 +15,7 @@ export type Show = {
     //genres: string[];
     //themes: string[];
     desc: string;
+    scored_by: number;
 }
 
 export type Tenrai = {
@@ -32,6 +33,7 @@ export type Tenrai = {
     genres: string[];
     themes: string[];
     synopsis: string;
+    scored_by: number;
     images: {
 	webp: {
 	    image_url: string;
